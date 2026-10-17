@@ -1,0 +1,62 @@
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=3 ON=00:00 OFF=10:00
+START: DIRECT GPIO16, 15 seconds, 1300-1700us, 50Hz; PCA outputs remain off.
+DIRECT COMMAND: GPIO16 pulse_us=1500 attached=1. Physical motion must be observed.
+DIRECT COMMAND: GPIO16 pulse_us=1700 attached=1. Physical motion must be observed.
+DIRECT COMMAND: GPIO16 pulse_us=1300 attached=1. Physical motion must be observed.
+DONE: all outputs full-off verified.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=3 ON=00:00 OFF=10:00
+
+
+Repeat after user corrected motor power; GPIO16 signal, channel3 V+/GND unchanged.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=3 ON=00:00 OFF=10:00
+START: DIRECT GPIO16, 15 seconds, 1300-1700us, 50Hz; PCA outputs remain off.
+DIRECT COMMAND: GPIO16 pulse_us=1500 attached=1. Physical motion must be observed.
+DIRECT COMMAND: GPIO16 pulse_us=1700 attached=1. Physical motion must be observed.
+DIRECT COMMAND: GPIO16 pulse_us=1300 attached=1. Physical motion must be observed.
+DONE: all outputs full-off verified.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=3 ON=00:00 OFF=10:00
+
+
+User confirmed previous motor moved following power fix. Repeated same GPIO16 test for replacement motor at user request.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=3 ON=00:00 OFF=10:00
+START: DIRECT GPIO16, 15 seconds, 1300-1700us, 50Hz; PCA outputs remain off.
+DIRECT COMMAND: GPIO16 pulse_us=1500 attached=1. Physical motion must be observed.
+DIRECT COMMAND: GPIO16 pulse_us=1700 attached=1. Physical motion must be observed.
+DIRECT COMMAND: GPIO16 pulse_us=1300 attached=1. Physical motion must be observed.
+DONE: all outputs full-off verified.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=3 ON=00:00 OFF=10:00
+
+
+User confirmed second motor moved on same GPIO16 path. Repeated test for third motor at user request.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=3 ON=00:00 OFF=10:00
+START: DIRECT GPIO16, 15 seconds, 1300-1700us, 50Hz; PCA outputs remain off.
+DIRECT COMMAND: GPIO16 pulse_us=1500 attached=1. Physical motion must be observed.
+DIRECT COMMAND: GPIO16 pulse_us=1700 attached=1. Physical motion must be observed.
+DIRECT COMMAND: GPIO16 pulse_us=1300 attached=1. Physical motion must be observed.
+DONE: all outputs full-off verified.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=3 ON=00:00 OFF=10:00
+

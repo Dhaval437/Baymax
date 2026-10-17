@@ -1,0 +1,11 @@
+LEVEL rms=2682 trigger=461 mode=wake
+BAYMAX v2 state=listening listening=1 conversation=0 wifi=1 pca=1 motion_enabled=0 moving=0
+LEVEL rms=176 trigger=490 mode=wake
+Processing speech on laptop...
+No recognized speech or wake phrase.
+LEVEL rms=4565 trigger=490 mode=wake
+LEVEL rms=161 trigger=450 mode=wake
+LEVEL rms=157 trigger=450 mode=wake
+LEVEL rms=88 trigger=450 mode=wake
+LEVEL rms=109 trigger=450 mode=wake
+

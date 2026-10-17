@@ -1,0 +1,19 @@
+{
+  "units": "mm",
+  "body_diameter": 8,
+  "body_length": 10,
+  "male_diameter": 4,
+  "male_projection": 3,
+  "female_diameter": 4,
+  "female_depth": 3,
+  "overall_length": 13,
+  "copies_in_pair": 2,
+  "nominal_axial_extension_when_fully_seated": 10,
+  "triangles_each": 1536,
+  "nonmanifold_edges": 0,
+  "volume_each_mm3": 502.453,
+  "male_projection_is_assumed": true,
+  "physical_fit_tested": false,
+  "spline_teeth": false,
+  "status": "Round fit prototype only; not a validated torque-transmitting SG90 spline coupling."
+}

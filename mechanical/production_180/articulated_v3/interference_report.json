@@ -1,0 +1,7 @@
+{
+  "status": "Interference audit; positive overlaps require review",
+  "static_overlaps": [],
+  "component_overlaps": [],
+  "sampled_motion_overlaps": [],
+  "limits": "2 degree samples; nominal servo case, wing, turret and spline envelopes included. Cable bends, flexible ties, horn-specific geometry and supplier variations require physical assembly verification."
+}

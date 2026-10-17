@@ -1,0 +1,24 @@
+{
+  "status": "Neutral exterior; both arms down. Servo mounting and motion clearance pending.",
+  "method": "Mirror the original lowered arm and hand across the display-base symmetry plane. Preserve original sculpt topology.",
+  "symmetry_plane_x_mm": 4.820418357849121,
+  "arms": [
+    {
+      "name": "NEUTRAL - Left arm and hand",
+      "vertices": 9849,
+      "nonmanifold_edges": 0,
+      "volume_mm3": 37141.5535198003
+    },
+    {
+      "name": "NEUTRAL - Right arm and hand",
+      "vertices": 9849,
+      "nonmanifold_edges": 0,
+      "volume_mm3": 37141.553513114435
+    }
+  ],
+  "overall_dimensions_mm": [
+    94.21361923217773,
+    72.76250457763672,
+    150.0
+  ]
+}

@@ -1,0 +1,12 @@
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=3 ON=00:00 OFF=10:00
+START: PCA channel 3, 15 seconds, 1300-1700 us.
+VERIFIED: channel=3 pulse_us=1500 ticks=308 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=3 pulse_us=1700 ticks=349 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=3 pulse_us=1300 ticks=267 full_off=0; MODE1=20 MODE2=04. Register readback only.
+DONE: all outputs full-off verified.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=3 ON=00:00 OFF=10:00
+

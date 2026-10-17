@@ -1,0 +1,221 @@
+{
+  "status": "HOLD FULL ROBOT PRINT. Only fit tests released.",
+  "height_target_mm": 180,
+  "base_height_mm": 35.67171096801758,
+  "parts": [
+    {
+      "name": "03_Leg_left_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 24120.44135509124,
+      "faces": 14808,
+      "dimensions_mm": [
+        29.86870002746582,
+        32.894625663757324,
+        49.90825271606445
+      ]
+    },
+    {
+      "name": "03_Leg_right_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 24120.444259719716,
+      "faces": 14802,
+      "dimensions_mm": [
+        29.870003700256348,
+        32.894625663757324,
+        49.9077091217041
+      ]
+    },
+    {
+      "name": "01_base_box_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 58583.04080797871,
+      "faces": 7636,
+      "dimensions_mm": [
+        100.0,
+        85.0,
+        33.32171058654785
+      ]
+    },
+    {
+      "name": "02_base_bottom_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 25736.850566973655,
+      "faces": 2896,
+      "dimensions_mm": [
+        100.0,
+        85.0,
+        9.0
+      ]
+    },
+    {
+      "name": "04_torso_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 28304.781847796494,
+      "faces": 39578,
+      "dimensions_mm": [
+        73.91039276123047,
+        44.231258392333984,
+        108.85440063476562
+      ]
+    },
+    {
+      "name": "04_torso_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 18405.157379664666,
+      "faces": 28000,
+      "dimensions_mm": [
+        71.88176536560059,
+        24.72174072265625,
+        108.16376495361328
+      ]
+    },
+    {
+      "name": "05_head_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 1436.317966229706,
+      "faces": 28978,
+      "dimensions_mm": [
+        27.760584831237793,
+        15.02639389038086,
+        18.47802734375
+      ]
+    },
+    {
+      "name": "05_head_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 1034.067529590581,
+      "faces": 16594,
+      "dimensions_mm": [
+        27.711284637451172,
+        12.25847053527832,
+        15.6600341796875
+      ]
+    },
+    {
+      "name": "06_Left_arm_and_hand_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 20646.4265197176,
+      "faces": 14580,
+      "dimensions_mm": [
+        33.41329574584961,
+        19.21815586090088,
+        95.4912338256836
+      ]
+    },
+    {
+      "name": "06_Left_arm_and_hand_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 12245.943983382209,
+      "faces": 8952,
+      "dimensions_mm": [
+        32.939026832580566,
+        12.582067489624023,
+        93.9367446899414
+      ]
+    },
+    {
+      "name": "06_Right_arm_and_hand_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 20646.42643441618,
+      "faces": 14580,
+      "dimensions_mm": [
+        33.41329383850098,
+        19.21815586090088,
+        95.4912338256836
+      ]
+    },
+    {
+      "name": "06_Right_arm_and_hand_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 12245.944012254653,
+      "faces": 8952,
+      "dimensions_mm": [
+        32.939029693603516,
+        12.582067489624023,
+        93.9367446899414
+      ]
+    }
+  ],
+  "fit_tests": [
+    {
+      "name": "fit_lip_1_socket",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 1038.7200360107418,
+      "faces": 44,
+      "dimensions_mm": [
+        24.0,
+        18.0,
+        4.0
+      ]
+    },
+    {
+      "name": "fit_lip_2_socket",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 1015.3199658203122,
+      "faces": 60,
+      "dimensions_mm": [
+        24.0,
+        18.0,
+        4.0
+      ]
+    },
+    {
+      "name": "fit_lip_3_socket",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 991.6800198745736,
+      "faces": 76,
+      "dimensions_mm": [
+        24.0,
+        18.0,
+        4.0
+      ]
+    },
+    {
+      "name": "fit_lip_male",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 1296.0,
+      "faces": 28,
+      "dimensions_mm": [
+        24.0,
+        18.0,
+        4.0
+      ]
+    },
+    {
+      "name": "fit_M3_nut_and_screw",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 1462.765861761685,
+      "faces": 454,
+      "dimensions_mm": [
+        20.0,
+        14.0,
+        6.0
+      ]
+    },
+    {
+      "name": "fit_speaker_D52_clearance",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 545.3281681616866,
+      "faces": 384,
+      "dimensions_mm": [
+        56.0,
+        56.0,
+        2.0
+      ]
+    }
+  ],
+  "unresolved": [
+    "Servo fit gauges not yet printed",
+    "Two additional servo dimensions unconfirmed",
+    "M3 hardware ownership unconfirmed",
+    "Shoulder load-bearing supports and horn attachments not designed",
+    "Head bearing and servo mount not designed",
+    "Torso/head/arm mechanical fasteners not designed",
+    "Microphone and amplifier dimensions pending arrival",
+    "Power cable and clamp sizing pending",
+    "Shell offset self-intersection and minimum-wall inspection required",
+    "Speaker retaining bracket and chest button mount pending",
+    "Full motion sweep and slicer review required"
+  ],
+  "measured_assembly_height_mm": 180.0
+}

@@ -1,0 +1,157 @@
+{
+  "fasteners": [
+    {
+      "pair": "04_torso",
+      "x_mm": -22.17958164215088,
+      "z_mm": 78,
+      "thread": "M3",
+      "candidate_length_mm": 20,
+      "pilot_engagement_mm": 8.999772644042968,
+      "note": "Printed pilot; final screw/head dimensions and torque require assembly check."
+    },
+    {
+      "pair": "04_torso",
+      "x_mm": 31.82041835784912,
+      "z_mm": 78,
+      "thread": "M3",
+      "candidate_length_mm": 16,
+      "pilot_engagement_mm": 7.113404846191406,
+      "note": "Printed pilot; final screw/head dimensions and torque require assembly check."
+    },
+    {
+      "pair": "04_torso",
+      "x_mm": -10.179581642150879,
+      "z_mm": 145,
+      "thread": "M3",
+      "candidate_length_mm": 20,
+      "pilot_engagement_mm": 4.749467468261718,
+      "note": "Printed pilot; final screw/head dimensions and torque require assembly check."
+    },
+    {
+      "pair": "04_torso",
+      "x_mm": 19.82041835784912,
+      "z_mm": 145,
+      "thread": "M3",
+      "candidate_length_mm": 20,
+      "pilot_engagement_mm": 5.765542602539062,
+      "note": "Printed pilot; final screw/head dimensions and torque require assembly check."
+    },
+    {
+      "pair": "05_head",
+      "x_mm": -6,
+      "z_mm": 175,
+      "thread": "M2.5",
+      "candidate_length_mm": 16,
+      "pilot_engagement_mm": 5.712518310546875,
+      "note": "Printed pilot; final screw/head dimensions and torque require assembly check."
+    },
+    {
+      "pair": "05_head",
+      "x_mm": 6,
+      "z_mm": 175,
+      "thread": "M2.5",
+      "candidate_length_mm": 20,
+      "pilot_engagement_mm": 9.210260009765625,
+      "note": "Printed pilot; final screw/head dimensions and torque require assembly check."
+    },
+    {
+      "pair": "06_Left_arm_and_hand",
+      "x_mm": -30.211880683898926,
+      "z_mm": 98,
+      "thread": "M2.5",
+      "candidate_length_mm": 20,
+      "pilot_engagement_mm": 7.813423156738281,
+      "note": "Printed pilot; final screw/head dimensions and torque require assembly check."
+    },
+    {
+      "pair": "06_Left_arm_and_hand",
+      "x_mm": -28.646573066711426,
+      "z_mm": 111,
+      "thread": "M2.5",
+      "candidate_length_mm": 20,
+      "pilot_engagement_mm": 7.3790283203125,
+      "note": "Printed pilot; final screw/head dimensions and torque require assembly check."
+    },
+    {
+      "pair": "06_Right_arm_and_hand",
+      "x_mm": 39.852718353271484,
+      "z_mm": 98,
+      "thread": "M2.5",
+      "candidate_length_mm": 20,
+      "pilot_engagement_mm": 7.8134307861328125,
+      "note": "Printed pilot; final screw/head dimensions and torque require assembly check."
+    },
+    {
+      "pair": "06_Right_arm_and_hand",
+      "x_mm": 38.28740882873535,
+      "z_mm": 111,
+      "thread": "M2.5",
+      "candidate_length_mm": 20,
+      "pilot_engagement_mm": 7.3790283203125,
+      "note": "Printed pilot; final screw/head dimensions and torque require assembly check."
+    }
+  ],
+  "mesh_checks": [
+    {
+      "name": "05_head_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 1765.233161196948
+    },
+    {
+      "name": "06_Right_arm_and_hand_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 20902.586405617243
+    },
+    {
+      "name": "04_torso_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 31886.143000437998
+    },
+    {
+      "name": "03_Leg_left_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 24120.441352270962
+    },
+    {
+      "name": "03_Leg_right_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 24120.4442542382
+    },
+    {
+      "name": "06_Left_arm_and_hand_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 20902.58852316191
+    },
+    {
+      "name": "01_base_box_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 58583.04080797871
+    },
+    {
+      "name": "02_base_bottom_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 25736.850566973655
+    },
+    {
+      "name": "04_torso_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 19271.701175865815
+    },
+    {
+      "name": "05_head_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 1214.226114475856
+    },
+    {
+      "name": "06_Left_arm_and_hand_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 12073.856175493653
+    },
+    {
+      "name": "06_Right_arm_and_hand_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 12073.856112307705
+    }
+  ],
+  "status": "Panel fastening development. Servo joints, component collision and physical fit still unverified."
+}

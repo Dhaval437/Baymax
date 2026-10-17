@@ -1,0 +1,39 @@
+[
+  {
+    "file": "03_ARMS_REVIEW.3mf",
+    "parts": [
+      {
+        "name": "06_Left_arm_and_hand_front_DRAFT",
+        "x_mm": 22.0,
+        "y_mm": 30.0,
+        "width_mm": 21.1068115234375,
+        "depth_mm": 72.67774200439453,
+        "height_mm": 18.94922637939453
+      },
+      {
+        "name": "06_Left_arm_and_hand_rear_DRAFT",
+        "x_mm": 53.1068115234375,
+        "y_mm": 30.0,
+        "width_mm": 20.878250122070312,
+        "depth_mm": 71.34171295166016,
+        "height_mm": 12.234870910644531
+      },
+      {
+        "name": "06_Right_arm_and_hand_front_DRAFT",
+        "x_mm": 83.98506164550781,
+        "y_mm": 30.0,
+        "width_mm": 21.106807708740234,
+        "depth_mm": 72.67774200439453,
+        "height_mm": 20.98073959350586
+      },
+      {
+        "name": "06_Right_arm_and_hand_rear_DRAFT",
+        "x_mm": 115.09186935424805,
+        "y_mm": 30.0,
+        "width_mm": 20.878250122070312,
+        "depth_mm": 71.34171295166016,
+        "height_mm": 12.56475830078125
+      }
+    ]
+  }
+]

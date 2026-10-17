@@ -1,0 +1,58 @@
+MIC STOPPED: acquisition off; no audio file recorded.
+MIC STATUS motors_off=1 testing=0 SCK=4 WS=5 SD=6 rate=16000 slot=LEFT
+MIC START: 20 seconds. Quiet first 5 seconds; speak for next 10; quiet final 5. Levels only, not speech recognition.
+MIC t=1.0s samples=15872 rms_ac=8469.54 mean=843.58 min=-17568 max=9567 zeros=0.5% clips=0 read_errors=0
+MIC t=2.0s samples=16128 rms_ac=1268.65 mean=647.05 min=-2453 max=5018 zeros=0.0% clips=0 read_errors=0
+MIC t=3.0s samples=16128 rms_ac=103.93 mean=-227.71 min=-803 max=709 zeros=0.0% clips=0 read_errors=0
+MIC t=4.0s samples=16128 rms_ac=215.18 mean=-453.37 min=-2313 max=1227 zeros=0.0% clips=0 read_errors=0
+MIC t=5.0s samples=16128 rms_ac=646.40 mean=-21.55 min=-2973 max=3361 zeros=0.1% clips=0 read_errors=0
+MIC t=6.0s samples=15872 rms_ac=468.63 mean=5.74 min=-4772 max=4064 zeros=0.2% clips=0 read_errors=0
+MIC t=7.0s samples=16128 rms_ac=266.94 mean=27.96 min=-1900 max=1911 zeros=0.2% clips=0 read_errors=0
+MIC t=8.0s samples=16128 rms_ac=215.08 mean=3.07 min=-2737 max=3048 zeros=0.3% clips=0 read_errors=0
+MIC t=9.0s samples=16128 rms_ac=287.05 mean=-56.12 min=-1760 max=1686 zeros=0.1% clips=0 read_errors=0
+MIC t=10.1s samples=16128 rms_ac=192.75 mean=-4.69 min=-1638 max=1492 zeros=0.3% clips=0 read_errors=0
+MIC t=11.1s samples=16128 rms_ac=204.64 mean=-21.28 min=-2625 max=2737 zeros=0.2% clips=0 read_errors=0
+MIC t=12.1s samples=16128 rms_ac=356.45 mean=-24.02 min=-2236 max=2114 zeros=0.1% clips=0 read_errors=0
+MIC t=13.1s samples=16128 rms_ac=318.67 mean=-45.83 min=-2247 max=2701 zeros=0.2% clips=0 read_errors=0
+MIC t=14.1s samples=16128 rms_ac=145.75 mean=32.16 min=-575 max=670 zeros=0.3% clips=0 read_errors=0
+MIC t=15.1s samples=16128 rms_ac=118.11 mean=22.24 min=-309 max=399 zeros=0.3% clips=0 read_errors=0
+MIC t=16.1s samples=16128 rms_ac=853.85 mean=-34.34 min=-4599 max=7421 zeros=0.1% clips=0 read_errors=0
+MIC t=17.1s samples=16128 rms_ac=962.01 mean=-41.67 min=-5416 max=5516 zeros=0.1% clips=0 read_errors=0
+MIC t=18.1s samples=16128 rms_ac=141.76 mean=6.48 min=-777 max=679 zeros=0.3% clips=0 read_errors=0
+MIC t=19.1s samples=16128 rms_ac=562.41 mean=10.20 min=-4247 max=4908 zeros=0.3% clips=0 read_errors=0
+MIC t=20.0s samples=14080 rms_ac=130.51 mean=-55.17 min=-466 max=318 zeros=0.3% clips=0 read_errors=0
+MIC STOPPED: acquisition off; no audio file recorded.
+MIC DONE: 20-second level test complete.
+MIC STOPPED: acquisition off; no audio file recorded.
+MIC STATUS motors_off=1 testing=0 SCK=4 WS=5 SD=6 rate=16000 slot=LEFT
+
+
+User-requested repeat:
+MIC STOPPED: acquisition off; no audio file recorded.
+MIC STATUS motors_off=1 testing=0 SCK=4 WS=5 SD=6 rate=16000 slot=LEFT
+MIC START: 20 seconds. Quiet first 5 seconds; speak for next 10; quiet final 5. Levels only, not speech recognition.
+MIC t=1.0s samples=15872 rms_ac=14042.59 mean=2462.25 min=-30427 max=15280 zeros=0.4% clips=0 read_errors=0
+MIC t=2.0s samples=16128 rms_ac=2104.27 mean=-37.98 min=-2243 max=5673 zeros=0.0% clips=0 read_errors=0
+MIC t=3.0s samples=16128 rms_ac=451.66 mean=-1213.75 min=-2242 max=-116 zeros=0.0% clips=0 read_errors=0
+MIC t=4.0s samples=16128 rms_ac=212.30 mean=-452.83 min=-1001 max=112 zeros=0.0% clips=0 read_errors=0
+MIC t=5.0s samples=16128 rms_ac=118.17 mean=-153.21 min=-524 max=375 zeros=0.2% clips=0 read_errors=0
+MIC t=6.0s samples=15872 rms_ac=127.27 mean=-122.74 min=-515 max=235 zeros=0.3% clips=0 read_errors=0
+MIC t=7.0s samples=16128 rms_ac=153.30 mean=157.25 min=-302 max=601 zeros=0.1% clips=0 read_errors=0
+MIC t=8.0s samples=16128 rms_ac=124.33 mean=-167.12 min=-582 max=258 zeros=0.1% clips=0 read_errors=0
+MIC t=9.0s samples=16128 rms_ac=170.24 mean=-1.49 min=-528 max=531 zeros=0.2% clips=0 read_errors=0
+MIC t=10.1s samples=16128 rms_ac=115.77 mean=4.92 min=-383 max=398 zeros=0.4% clips=0 read_errors=0
+MIC t=11.1s samples=16128 rms_ac=459.54 mean=-119.97 min=-5717 max=5176 zeros=0.1% clips=0 read_errors=0
+MIC t=12.1s samples=16128 rms_ac=1079.50 mean=-3.60 min=-4883 max=5552 zeros=0.1% clips=0 read_errors=0
+MIC t=13.1s samples=16128 rms_ac=159.55 mean=26.20 min=-767 max=524 zeros=0.2% clips=0 read_errors=0
+MIC t=14.1s samples=16128 rms_ac=1051.63 mean=174.82 min=-5783 max=8429 zeros=0.0% clips=0 read_errors=0
+MIC t=15.1s samples=16128 rms_ac=339.04 mean=-53.90 min=-3072 max=2965 zeros=0.1% clips=0 read_errors=0
+MIC t=16.1s samples=16128 rms_ac=192.78 mean=-206.76 min=-869 max=316 zeros=0.2% clips=0 read_errors=0
+MIC t=17.1s samples=16128 rms_ac=130.01 mean=-81.97 min=-583 max=364 zeros=0.2% clips=0 read_errors=0
+MIC t=18.1s samples=16128 rms_ac=730.02 mean=100.51 min=-3718 max=3792 zeros=0.0% clips=0 read_errors=0
+MIC t=19.1s samples=16128 rms_ac=874.09 mean=25.79 min=-4053 max=6454 zeros=0.1% clips=0 read_errors=0
+MIC t=20.0s samples=14080 rms_ac=241.38 mean=45.21 min=-2597 max=2351 zeros=0.2% clips=0 read_errors=0
+MIC STOPPED: acquisition off; no audio file recorded.
+MIC DONE: 20-second level test complete.
+MIC STOPPED: acquisition off; no audio file recorded.
+MIC STATUS motors_off=1 testing=0 SCK=4 WS=5 SD=6 rate=16000 slot=LEFT
+

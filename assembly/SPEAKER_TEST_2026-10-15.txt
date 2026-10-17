@@ -1,0 +1,8 @@
+MIC STOPPED: acquisition off; no audio file recorded.
+MIC STATUS motors_off=1 testing=0 SCK=4 WS=5 SD=6 rate=16000 slot=LEFT speaker_active=0 speaker_test=T
+MIC STOPPED: acquisition off; no audio file recorded.
+SPEAKER START: three soft notes, 3 seconds maximum; X stops.
+SPEAKER DONE: three notes transmitted; output off.
+MIC STOPPED: acquisition off; no audio file recorded.
+MIC STATUS motors_off=1 testing=0 SCK=4 WS=5 SD=6 rate=16000 slot=LEFT speaker_active=0 speaker_test=T
+

@@ -1,0 +1,97 @@
+#include <Arduino.h>
+#include <Wire.h>
+
+// PCA9685: SDA=8, SCL=9, logic VCC=3V3; motor V+ is external 5V.
+// Nominal 25 MHz oscillator, prescale 121 => approximately 50 Hz.
+constexpr uint8_t ADDRESS = 0x40;
+bool ready = false;
+int active = -1;
+uint32_t started = 0, lastWrite = 0;
+
+bool writeReg(uint8_t reg, uint8_t value) {
+  Wire.beginTransmission(ADDRESS); Wire.write(reg); Wire.write(value);
+  return Wire.endTransmission() == 0;
+}
+int readReg(uint8_t reg) {
+  Wire.beginTransmission(ADDRESS); Wire.write(reg);
+  if (Wire.endTransmission(false) != 0) return -1;
+  if (Wire.requestFrom(ADDRESS, uint8_t(1)) != 1) return -1;
+  return Wire.read();
+}
+bool setChannel(uint8_t channel, uint16_t off) {
+  Wire.beginTransmission(ADDRESS);
+  Wire.write(uint8_t(0x06 + channel * 4));
+  Wire.write(uint8_t(0)); Wire.write(uint8_t(0));
+  Wire.write(uint8_t(off)); Wire.write(uint8_t(off >> 8));
+  return Wire.endTransmission() == 0;
+}
+bool stopAll() {
+  active = -1;
+  bool ok = true;
+  for (int i = 0; i < 16; ++i) if (!setChannel(i, 4096)) ok = false;
+  for (int i = 0; i < 16; ++i) {
+    int value = readReg(0x09 + i * 4);
+    if (value < 0 || !(value & 0x10)) ok = false;
+  }
+  return ok;
+}
+void setup() {
+  Serial.begin(115200);
+  for (int pin : {16, 17, 18}) { pinMode(pin, OUTPUT); digitalWrite(pin, LOW); }
+  Wire.begin(8, 9); Wire.setClock(100000); Wire.setTimeOut(50);
+  // Sleep while configuring; auto increment enabled; all outputs full-off.
+  bool ok = writeReg(0x00, 0x30);
+  if (ok) ok = stopAll();
+  if (ok) ok = writeReg(0x01, 0x04) && writeReg(0xFE, 121);
+  if (ok) ok = writeReg(0x00, 0x20);
+  delay(5);
+  if (ok) ok = readReg(0xFE) == 121 && readReg(0x00) == 0x20;
+  ready = ok;
+  delay(800);
+  Serial.println(ready ? "PCA READY: address 0x40, SDA8 SCL9, all outputs off." : "PCA ERROR: controller not verified. No motion enabled.");
+  Serial.println("H=head0 L=left1 R=right2: single servo, 60 seconds. X=stop ?=status.");
+}
+void loop() {
+  if (Serial.available()) {
+    char cmd = toupper(Serial.read());
+    if (cmd == 'X') {
+      bool ok = stopAll();
+      if (!ok) ready = false;
+      Serial.println(ok ? "STOPPED: all 16 full-off registers verified." : "ERROR: stop not verified; disconnect servo power.");
+    } else if (cmd == '?') {
+      Serial.printf("PCA STATUS ready=%d active=%d prescale=%d\n", ready, active, readReg(0xFE));
+    } else if (ready && active == -1) {
+      int channel = cmd == 'H' ? 0 : cmd == 'L' ? 1 : cmd == 'R' ? 2 : -1;
+      if (channel >= 0) {
+        if (!stopAll()) { ready = false; Serial.println("ERROR: cannot verify idle; no start."); }
+        else {
+          active = channel; started = millis(); lastWrite = started - 20;
+          Serial.printf("START: PCA channel %d, 60 seconds, 1300-1700 us.\n", active);
+        }
+      }
+    }
+  }
+  if (active >= 0) {
+    uint32_t elapsed = millis() - started;
+    if (elapsed >= 60000) {
+      bool ok = stopAll();
+      if (!ok) ready = false;
+      Serial.println(ok ? "DONE: all outputs full-off verified." : "ERROR: stop not verified; disconnect servo power.");
+    } else if (millis() - lastWrite >= 20) {
+      lastWrite = millis();
+      uint32_t t = elapsed % 15000;
+      int us = 1500;
+      if (t >= 1000 && t < 3000) us = 1500 + (t - 1000) / 10;
+      else if (t >= 3000 && t < 5000) us = 1700;
+      else if (t >= 5000 && t < 9000) us = 1700 - (t - 5000) / 10;
+      else if (t >= 9000 && t < 11000) us = 1300;
+      else if (t >= 11000 && t < 13000) us = 1300 + (t - 11000) / 10;
+      uint16_t ticks = (us * 25UL + 61) / 122;
+      if (!setChannel(active, ticks)) {
+        ready = false; stopAll();
+        Serial.println("ERROR: I2C write failed; disconnect servo power if moving.");
+      }
+    }
+  }
+  delay(1);
+}

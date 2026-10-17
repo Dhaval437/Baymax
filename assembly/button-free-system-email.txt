@@ -1,0 +1,24 @@
+Subject: Baymax robot - updated button-free assembly plan
+
+Hello,
+
+We are building a 180 mm desktop Baymax robot with no physical control buttons. The intended behavior is: connect power, start automatically, connect to Wi-Fi, listen to speech, reply through its speaker, and return to listening. Removing the robot's single power connection switches it off. In the first version, listening pauses during playback to avoid responding to its own voice.
+
+The ESP32-S3 handles microphone capture, speaker playback and motor signals. A laptop on the same Wi-Fi network runs the speech and conversation software and must remain running. Cloud hosting is a later option.
+
+The hardware consists of an ESP32-S3 N16R8, INMP441 microphone, MAX98357A amplifier, one suitable speaker and three SG90 positional servos for the head and arms. The breadboard is for initial low-current wiring tests; the final wiring will be hidden inside the body and base.
+
+Planned wiring by label:
+- Microphone VDD -> ESP32 3V3; microphone GND and L/R -> common GND; SCK -> GPIO4; WS -> GPIO5; SD -> GPIO6.
+- Amplifier BCLK -> GPIO4; LRC -> GPIO5; DIN -> GPIO7; VIN -> regulated external +5V; GND -> common GND. GAIN and SD remain unconnected initially on the supplied breakout. Speaker connects only between the amplifier speaker + and - outputs.
+- Servo signals: head GPIO16; left arm GPIO17; right arm GPIO18. All servo red leads -> external +5V; brown leads -> common GND.
+- GPIO15 is unused. There is no talk button.
+
+For the planned finished robot, one verified regulated 5V adapter feeds a suitable power distribution connection supplying the ESP32 5V input, amplifier and servo power branches. The microphone receives 3.3V from the ESP32. Grounds are shared. Laptop USB power must remain disconnected in that setup. Firmware programming uses the separate USB bench arrangement with external power disconnected. Adapter output/polarity and speaker ratings must be verified before wiring and energizing the final arrangement.
+
+The illustration is conceptual: use the pin labels above, not its drawn board positions, wire colors or crossings. Do not interpret a servo signal line as a 5V power connection.
+
+Current status: laptop voice/conversation code exists; audio hardware tests remain. The original servo has not moved in either board test, so it is not yet validated. Automatic hands-free conversation and arm control still need implementation and testing. Assembly will proceed through microphone, speaker, individual motor and combined-system tests before closing the shell.
+
+Regards,
+Dhruv

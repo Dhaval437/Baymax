@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Baymax · First words</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<body><main>
+<header><a href="/" class="brand">BAYMAX <span>PROJECT / 01</span></a><span id="connection" class="pill">Checking setup…</span></header>
+<section class="intro"><p class="eyebrow">A SMALL COMPANION. A FIRST CONVERSATION.</p><h1>Let’s find your voice.</h1><p>Our first step toward a desk companion. No robot or new parts needed yet.</p></section>
+<div class="layout"><section class="companion panel" aria-label="Recording and voice controls">
+<div class="face" aria-hidden="true"><i></i><b></b><i></i></div><p class="eyebrow">LAPTOP PROTOTYPE</p><h2 id="state">Ready when you are.</h2><p id="status" role="status" aria-live="polite">Checking the local service.</p>
+<button id="record" class="primary" disabled>Start recording</button><p class="hint">Click again to stop · 20 seconds maximum</p>
+<audio id="recording" controls hidden aria-label="Your microphone recording"></audio>
+<button id="transcribe" class="secondary" disabled>Transcribe recording</button>
+<div class="divider"></div><label for="voice">Voice experiment</label><select id="voice"></select>
+<button id="audition" class="secondary" disabled>Hear a sample greeting</button><p class="hint">These are synthetic audition voices. The exact movie voice is not available in this prototype.</p>
+<audio id="replyAudio" controls hidden aria-label="AI-generated speech"></audio>
+</section>
+<section class="conversation panel"><div class="section-heading"><h2>Our conversation</h2><button id="clear" class="text-button">Clear</button></div>
+<div id="messages" role="log" aria-live="polite"><div id="empty"><span>01 / LISTEN & SPEAK</span><h3>Start with something simple.</h3><p>Try “Hello, what can we build together?” Record your voice or type below.</p></div></div>
+<form id="chat"><label for="message">Your message</label><textarea id="message" maxlength="2000" rows="3" placeholder="Say hello…"></textarea><div class="send-row"><span>Short replies. Small steps.</span><button id="send" class="primary" disabled>Send message ↗</button></div></form>
+</section></div>
+<section id="setup" class="notice" hidden><strong>Microphone testing is ready. Online conversation needs an API key.</strong><p>Record and replay locally for free. To enable replies, follow START_HERE.md in the project folder, configure your selected provider in .env and restart. Never put a key in this chat interface.</p></section>
+<footer id="privacy">Recordings stay in this tab until you choose Transcribe. Online actions send audio or text to <span id="providerName">your selected provider</span>. Free tiers have limits; paid accounts may incur charges. This app does not save recordings or chat to disk.</footer>
+</main></body></html>

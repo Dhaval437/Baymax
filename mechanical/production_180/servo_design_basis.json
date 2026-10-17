@@ -1,0 +1,16 @@
+{
+  "brand": "TIANKONGRC",
+  "model": "SG90 9g",
+  "source_url": "https://www.tiankongrc.com/sale-51874362-tiankongrc-sg90-9g-micro-servo-motor-miuzei-mini-servos-motor-kit-metal-gear-servo-for-arduino-proje.html",
+  "checked_date": "2026-09-29",
+  "manufacturer_dimensions_mm": [22.4, 12.5, 22.8],
+  "interpretation": "Treat as case dimensions for planning; the page does not explicitly dimension tab span, shaft offset or mounting-hole positions.",
+  "user_reported_overall_dimensions_mm": [30, 32, 11],
+  "reserved_overall_envelope_mm": [33.5, 14, 33],
+  "proposed_case_aperture_mm": [23.4, 13.5],
+  "proposed_clearance_per_side_mm": 0.5,
+  "test_print_required": false,
+  "user_direction": "Use published dimensions and proceed without a mandatory physical fit-test print.",
+  "mounting_approach": "Replaceable bracket, open wire exit, elongated fastening slots and removable shims. Use supplied plastic horn; do not print a spline.",
+  "still_unverified": ["Exact user-unit case dimensions", "Tab thickness and hole centres", "Output shaft offset", "Horn shape and fastening locations", "Physical fit and motion clearance"]
+}

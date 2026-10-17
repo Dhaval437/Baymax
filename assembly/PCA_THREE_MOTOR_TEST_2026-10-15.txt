@@ -1,0 +1,82 @@
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=0 ON=00:00 OFF=10:00
+START: PCA channel 0, 15 seconds, 1300-1700 us.
+VERIFIED: channel=0 pulse_us=1500 ticks=308 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=0 pulse_us=1700 ticks=349 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=0 pulse_us=1300 ticks=267 full_off=0; MODE1=20 MODE2=04. Register readback only.
+DONE: all outputs full-off verified.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=0 ON=00:00 OFF=10:00
+START: PCA channel 1, 15 seconds, 1300-1700 us.
+VERIFIED: channel=1 pulse_us=1500 ticks=308 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=1 pulse_us=1700 ticks=349 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=1 pulse_us=1300 ticks=267 full_off=0; MODE1=20 MODE2=04. Register readback only.
+DONE: all outputs full-off verified.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=0 ON=00:00 OFF=10:00
+START: PCA channel 2, 15 seconds, 1300-1700 us.
+VERIFIED: channel=2 pulse_us=1500 ticks=308 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=2 pulse_us=1700 ticks=349 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=2 pulse_us=1300 ticks=267 full_off=0; MODE1=20 MODE2=04. Register readback only.
+DONE: all outputs full-off verified.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=0 ON=00:00 OFF=10:00
+
+
+User-requested repeat:
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=0 ON=00:00 OFF=10:00
+START: PCA channel 0, 15 seconds, 1300-1700 us.
+VERIFIED: channel=0 pulse_us=1500 ticks=308 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=0 pulse_us=1700 ticks=349 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=0 pulse_us=1300 ticks=267 full_off=0; MODE1=20 MODE2=04. Register readback only.
+DONE: all outputs full-off verified.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=0 ON=00:00 OFF=10:00
+START: PCA channel 1, 15 seconds, 1300-1700 us.
+VERIFIED: channel=1 pulse_us=1500 ticks=308 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=1 pulse_us=1700 ticks=349 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=1 pulse_us=1300 ticks=267 full_off=0; MODE1=20 MODE2=04. Register readback only.
+DONE: all outputs full-off verified.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=0 ON=00:00 OFF=10:00
+START: PCA channel 2, 15 seconds, 1300-1700 us.
+VERIFIED: channel=2 pulse_us=1500 ticks=308 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=2 pulse_us=1700 ticks=349 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=2 pulse_us=1300 ticks=267 full_off=0; MODE1=20 MODE2=04. Register readback only.
+DONE: all outputs full-off verified.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=0 ON=00:00 OFF=10:00
+
+
+User-requested channel2-only test:
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=0 ON=00:00 OFF=10:00
+START: PCA channel 2, 15 seconds, 1300-1700 us.
+VERIFIED: channel=2 pulse_us=1500 ticks=308 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=2 pulse_us=1700 ticks=349 full_off=0; MODE1=20 MODE2=04. Register readback only.
+VERIFIED: channel=2 pulse_us=1300 ticks=267 full_off=0; MODE1=20 MODE2=04. Register readback only.
+DONE: all outputs full-off verified.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=130
+DIRECT_STATUS pin=16 active=0 attached=0
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=0 ON=00:00 OFF=10:00
+

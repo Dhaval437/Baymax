@@ -1,0 +1,257 @@
+{
+  "status": "Engineering prototype under validation; NOT PRINT RELEASED",
+  "parts": [
+    {
+      "name": "06_Right_arm_and_hand_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 8942.403641004383,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        6680
+      ]
+    },
+    {
+      "name": "04_torso_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 42594.96453002405,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        32521
+      ]
+    },
+    {
+      "name": "03_Leg_left_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 21582.370929479053,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        6571
+      ]
+    },
+    {
+      "name": "03_Leg_right_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 22008.2140267126,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        6708
+      ]
+    },
+    {
+      "name": "06_Left_arm_and_hand_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 7819.770398662789,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        6928
+      ]
+    },
+    {
+      "name": "01_base_box_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 62661.19046248439,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        5599
+      ]
+    },
+    {
+      "name": "02_base_bottom_DRAFT",
+      "nonmanifold_edges": 10,
+      "volume_mm3": 23193.18937176188,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        2175
+      ]
+    },
+    {
+      "name": "04_torso_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 24184.50841870153,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        22063
+      ]
+    },
+    {
+      "name": "06_Left_arm_and_hand_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 4513.824539157752,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        4498
+      ]
+    },
+    {
+      "name": "06_Right_arm_and_hand_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 5213.240287123669,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        5273
+      ]
+    },
+    {
+      "name": "07_Left_horn_clamp_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 394.7836146189983,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        370
+      ]
+    },
+    {
+      "name": "07_Right_horn_clamp_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 394.7836146189983,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        370
+      ]
+    },
+    {
+      "name": "08_power_entry_insert_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 719.630453905087,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        152
+      ]
+    },
+    {
+      "name": "09_button_bracket_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 1177.8399833297726,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        146
+      ]
+    },
+    {
+      "name": "10_talk_button_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 128.10840067503304,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        256
+      ]
+    },
+    {
+      "name": "11_button_retainer_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 21.383419199956357,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        256
+      ]
+    },
+    {
+      "name": "12_Chest_badge_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 159.8249647414433,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        1608
+      ]
+    },
+    {
+      "name": "05_head_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 2799.328262588092,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        16028
+      ]
+    },
+    {
+      "name": "05_head_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 1672.5250335200235,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        5389
+      ]
+    },
+    {
+      "name": "07_head_carrier_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 298.33874981531187,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        527
+      ]
+    },
+    {
+      "name": "07_head_horn_clamp_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 203.76925167279356,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        669
+      ]
+    },
+    {
+      "name": "13_Left_arm_access_plug_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 59.27110688119745,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        199
+      ]
+    },
+    {
+      "name": "13_Right_arm_access_plug_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 59.27102596050781,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        199
+      ]
+    },
+    {
+      "name": "14_head_access_plug_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 83.04730765286976,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        225
+      ]
+    },
+    {
+      "name": "15_servo_shim_1_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 129.6000051498413,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        8
+      ]
+    },
+    {
+      "name": "15_servo_shim_2_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 216.0,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        8
+      ]
+    },
+    {
+      "name": "15_servo_shim_3_DRAFT",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 432.0,
+      "connected_mesh_islands": 1,
+      "island_vertices": [
+        8
+      ]
+    }
+  ],
+  "unverified": [
+    "Tab and horn clearances",
+    "Mount attachment continuity",
+    "Body and arm motion sweep",
+    "Head attachment and rotation",
+    "Speaker and button retainers",
+    "Base wiring and power entry",
+    "Slicer review"
+  ]
+}

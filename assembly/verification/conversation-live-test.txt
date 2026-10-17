@@ -1,0 +1,90 @@
+BAYMAX v2 state=listening listening=1 conversation=0 wifi=1 pca=1 motion_enabled=0 moving=0
+
+LEVEL rms=60 trigger=450 mode=wake
+
+LEVEL rms=50 trigger=450 mode=wake
+
+LEVEL rms=72 trigger=450 mode=wake
+
+LEVEL rms=84 trigger=450 mode=wake
+
+LEVEL rms=67 trigger=450 mode=wake
+
+LEVEL rms=65 trigger=450 mode=wake
+
+LEVEL rms=69 trigger=450 mode=wake
+
+LEVEL rms=86 trigger=450 mode=wake
+
+LEVEL rms=53 trigger=450 mode=wake
+
+LEVEL rms=54 trigger=450 mode=wake
+
+LEVEL rms=66 trigger=450 mode=wake
+
+LEVEL rms=65 trigger=450 mode=wake
+
+LEVEL rms=82 trigger=450 mode=wake
+
+LEVEL rms=177 trigger=450 mode=wake
+
+LEVEL rms=149 trigger=450 mode=wake
+
+LEVEL rms=123 trigger=450 mode=wake
+
+LEVEL rms=143 trigger=450 mode=wake
+
+LEVEL rms=102 trigger=450 mode=wake
+
+LEVEL rms=69 trigger=450 mode=wake
+
+LEVEL rms=74 trigger=450 mode=wake
+
+LEVEL rms=144 trigger=450 mode=wake
+
+LEVEL rms=97 trigger=450 mode=wake
+
+LEVEL rms=70 trigger=450 mode=wake
+
+LEVEL rms=93 trigger=450 mode=wake
+
+LEVEL rms=66 trigger=450 mode=wake
+
+LEVEL rms=64 trigger=450 mode=wake
+
+LEVEL rms=62 trigger=450 mode=wake
+
+LEVEL rms=81 trigger=450 mode=wake
+
+LEVEL rms=47 trigger=450 mode=wake
+
+LEVEL rms=138 trigger=450 mode=wake
+
+LEVEL rms=77 trigger=450 mode=wake
+
+LEVEL rms=77 trigger=450 mode=wake
+
+LEVEL rms=69 trigger=450 mode=wake
+
+LEVEL rms=61 trigger=450 mode=wake
+
+LEVEL rms=98 trigger=450 mode=wake
+
+LEVEL rms=153 trigger=450 mode=wake
+
+LEVEL rms=61 trigger=450 mode=wake
+
+LEVEL rms=61 trigger=450 mode=wake
+
+LEVEL rms=64 trigger=450 mode=wake
+
+LEVEL rms=107 trigger=450 mode=wake
+
+LEVEL rms=102 trigger=450 mode=wake
+
+LEVEL rms=106 trigger=450 mode=wake
+
+LEVEL rms=80 trigger=450 mode=wake
+
+LEVEL rms=236 trigger=450 mode=wake
+

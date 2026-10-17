@@ -1,0 +1,18 @@
+{
+  "checks": [
+    {
+      "part": "Existing ESP32-S3",
+      "inside_empty_cavity_envelope": true
+    },
+    {
+      "part": "Cuttable distribution perfboard",
+      "inside_empty_cavity_envelope": true
+    },
+    {
+      "part": "Amplifier provisional envelope",
+      "inside_empty_cavity_envelope": true
+    }
+  ],
+  "mutual_envelope_overlap": false,
+  "limits": "Rectangular reservations only. Does not verify collisions with existing mounts, plugs, foot fixings or wiring."
+}

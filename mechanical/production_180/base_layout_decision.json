@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-01",
+  "status": "Candidate layout; not a printable mount or verified assembly",
+  "robot_height_mm": 180,
+  "base_external_xy_mm": [100,85],
+  "base_internal_xy_mm": [94,79],
+  "base_internal_height_mm": 30.2717,
+  "coordinate_system": "Base cavity centre X/Y; Z measured up from internal floor",
+  "candidate_reservations": [
+    {"part":"Existing ESP32-S3", "size_mm":[64,29,15], "centre_mm":[0,-17,10.5]},
+    {"part":"Cuttable distribution perfboard", "size_mm":[50,30,18], "centre_mm":[0,19,12]},
+    {"part":"Amplifier provisional envelope", "size_mm":[20,20,12], "centre_mm":[35,15,9]}
+  ],
+  "excluded_from_final_base": ["81 x 55 mm solderless breadboard", "54 x 34 x 30 mm breadboard regulator module"],
+  "checks_remaining": ["Installed board rails must be repositioned", "USB connector direction and plug reserve", "Actual amplifier dimensions on arrival", "Distribution terminal and capacitor positions", "Socket body, rear cable and strain relief", "Foot bolts and wire passages", "Mount insulation and screws", "Exact component collision check"],
+  "power": "External enclosed regulated 5 V 5 A adapter; separate wired branches with common ground; microphone on 3.3 V; ESP32 USB/external-power isolation to verify"
+}

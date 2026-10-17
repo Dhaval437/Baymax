@@ -1,0 +1,12 @@
+{
+  "recorded_date": "2026-10-01",
+  "identity": "Breadboard power module, MB102-style appearance; exact circuit and ratings unverified",
+  "user_measured_envelope_mm": [54, 34, 30],
+  "includes_components_and_bottom_pins": true,
+  "source": "User measurements and WhatsApp Image 2026-10-01 at 10.05.29 AM.jpeg",
+  "connector_clearance_included": false,
+  "installation_status": "Not committed to final robot: verify electrical suitability first",
+  "servo_power_status": "Do not assume this module can supply three servos; regulated external supply and distribution remain to be specified",
+  "current_base_internal_height_mm": 30.2717,
+  "fit_assessment": "30 mm upright board leaves only about 0.27 mm above the floor before insulation, mounting and connector clearance; not a viable upright mounting layout as-is."
+}

@@ -1,0 +1,139 @@
+BAYMAX 180 mm — ASSEMBLY AND HARDWARE
+1 October 2026
+
+PRINT PROJECT
+For direct printing open Baymax_180mm_P1S_PRINT.gcode.3mf in Bambu Studio.
+It contains both plates already sliced. Select plate 1 or 2 and print each once.
+For editing instead, open Baymax_180mm_P1S_TWO_PLATES.3mf as a project.
+Estimates: plate 1 = 3 h 18 min / 104 g; plate 2 = 7 h 12 min / 149 g.
+Plate 1: base and small fittings, 17 pieces.
+Plate 2: torso, arms, feet and head, 10 pieces.
+Print one copy of each plate. All parts use filament slot 1, ordinary PLA.
+P1S / 0.4 mm nozzle / textured PEI / 0.20 mm layers / 3 walls /
+15% infill / 5 top and bottom layers / tree supports / 4 mm outer brims.
+Keep the supplied orientations and 100% scale. The assembled height is
+180 mm including the base. Paint the raised eyes and connecting line black.
+The three small rectangular pieces are optional 0.6, 1 and 2 mm servo shims.
+
+This is a first physical prototype. Digital checks do not establish the fit
+of every SG90 clone or the delivered audio boards. Remove support and burrs,
+dry-fit before bonding, and do not force a tight plastic joint.
+
+FASTENERS AND ASSEMBLY CONSUMABLES
+3 x M3 x 20 mm pan/button-head screws: torso upper pair and lower left.
+1 x M3 x 16 mm pan/button-head screw: torso lower right.
+4 x M2.5 x 20 mm pan/button-head screws: two per arm rear cover.
+6 x M2.5 x 10 mm pan/button-head screws: two per arm horn clamp,
+    plus two for the head carrier/clamp sandwich.
+2 x M3 x 8 mm pan/button-head screws: feet to base support beams.
+4 x M3 x 12 mm COUNTERSUNK screws and 4 M3 hex nuts: base bottom cover.
+2 x M2 x 5 mm COUNTERSUNK screws and 2 M2 hex nuts: talk-button bracket.
+3 x stock servo horn retaining screws: supplied with the three servos.
+About 16 narrow nylon cable ties, nominal 2.5 mm wide.
+Small amount of PLA-compatible cyanoacrylate gel or suitable epoxy.
+Black acrylic paint/fine marker for the face. Fine file/sandpaper and cutters.
+Do not substitute longer screws where a motor, board or outer skin lies ahead.
+Small pilot holes in the printed bosses accept screws directly, carefully
+forming threads in PLA; turn by hand and stop when seated. Do not power-drive.
+
+MECHANICAL ASSEMBLY ORDER
+1. Let plates cool. Peel away brims and tree supports gradually. Support the
+   tiny fingers, head locating pins and thin seam edges while cleaning.
+   Clear screw passages and wire passages without enlarging bearing seats.
+
+2. Lay out mirrored arm fronts/rears and legs using their names in the 3MF.
+   Left/right names follow the CAD coordinates, not the viewer's perspective.
+   Match the parts by shape. Keep their pairs together.
+
+3. With the base bottom off, seat each leg on the shaped top openings.
+   The underside beams provide the screw seats. Drive one M3 x 8 screw
+   upward through each beam into the pilot in its corresponding foot.
+   Route the robot harness through the larger adjacent foot/wire passages.
+
+4. Dry-fit the torso front over both upper leg sockets with the speaker
+   temporarily placed to confirm access. Bond each leg ONLY to the torso
+   front socket after alignment. Keep adhesive away from the removable rear
+   torso and the speaker seat. Let the adhesive cure before loading the joints.
+
+5. Before attaching any horns, electrically command all three unloaded
+   positional servos to their centre position using the test firmware.
+   Power must be disconnected again before mechanical assembly. Do not turn
+   a servo shaft hard by hand. Use the original plastic horns and splines;
+   no printed spline is required.
+
+6. Seat the two arm servos in the horizontal internal cradles with shafts
+   pointing outward through the shoulder openings. Secure each case using
+   narrow cable ties through the provided slots, avoiding the shaft and wires.
+   A supplied shim may be used only if needed for the actual servo case.
+   Place a short single stock horn in each arm hub relief, pointing toward
+   the hand. The printed clamp holds the horn arm with two M2.5 x 10 screws.
+   If the horn tip is too long, shorten only the unused tip; do not cut its
+   circular hub or alter the servo spline. Fit the arm with its hand resting
+   down, and install the stock retaining screw through the outer access hole.
+   Fit each rear arm cover using its two M2.5 x 20 screws. Keep the round
+   bearing clearance and the moving seam free of adhesive.
+
+7. Seat the neck servo upright in its cradle, shaft toward the head and
+   output axis slightly forward of the case centre. Secure it with ties.
+   Sandwich its short single horn between 07_head_carrier and
+   07_head_horn_clamp. The horn tip points toward the rear of the head.
+   Fasten this stack into the head-front columns using two M2.5 x 10 screws
+   from below. Trim only an unused horn tip if needed to fit the round pocket.
+   Set the head straight at the servo's electrical centre. Insert the stock
+   horn retaining screw through the roof service hole. Dry-fit the rear head
+   with its two locating sockets, then bond the head seam. The completed head
+   remains removable from the servo through the roof service hole.
+
+8. Place one 52 mm speaker in the rear torso seat facing its sound toward
+   the rear grille. Use the strap ears and narrow ties to secure its metal
+   basket/magnet without touching or pressing the cone. Keep terminals clear.
+   Fix the microphone module to the inner front pad with its acoustic port
+   aligned to the small front sound hole, without covering the microphone port.
+
+9. Secure the ESP32 on the long rails of the base bottom, the compact power
+   distribution board on the rear rails, and amplifier on the small side rails.
+   Use insulating supports/ties; avoid exposed conductive ends against boards.
+   Leave room for headers and gentle wire bends. This design uses a small
+   perfboard, not the large breadboard or MB102 regulator module.
+
+10. Fit the talk plunger through the front base hole. Slide the retaining
+    ring onto the stem inside; a tiny adhesive dot fixes ring to stem ONLY.
+    It must still slide freely in the base. Clip a nominal 6 x 6 mm tactile
+    switch into its bracket. Use two M2 x 5 countersunk screws from below
+    and two nuts to attach the bracket. Slide its slots until pressing the
+    plunger clicks the switch and release returns it freely, then tighten.
+    Actual switch actuator height may require bracket adjustment.
+
+11. Feed the low-voltage power cable through the removable rear insert's
+    8 mm hole before connecting its inner end. Secure strain relief using
+    the provided tie slots. This is a cable entry, not a universal barrel-jack
+    mounting hole. Any matching adapter socket/pigtail sits insulated inside.
+    The base bottom captures the insert. Do not rely on glue alone for strain
+    relief. Do not route mains voltage into the printed robot.
+
+12. Keep the rear torso off while the hardware is first tested. The digital
+    motion check covers a 30-degree forward arm lift and head yaw +/-20 degrees
+    in 2-degree steps. Begin physical tests at a much smaller range and low
+    speed, one joint at a time. Servo direction and zero offset depend on
+    installation; never start with a full 0-to-180-degree sweep.
+
+13. After wiring and motion tests, close the rear torso using the four M3
+    screws listed above, then fit the base bottom with its four M3 nuts and
+    countersunk screws. Fit the two arm access plugs and the roof plug with
+    light removable retention (tiny reusable adhesive dots if loose).
+    Bond the chest badge in its recess. Keep the service plugs removable.
+
+POWER AND BENCH TOOLS
+Reuse the ESP32-S3 N16R8, one speaker, one existing SG90 and jumper wires.
+Buy two matching positional SG90 servos, an enclosed regulated 5 V / 5 A
+adapter, a matching >=5 A low-voltage input pigtail, compact 50 x 30 mm
+perfboard, and 1000 uF / >=10 V capacitor. INMP441 and MAX98357A are ordered.
+Reuse suitable power wire if owned; thin signal Dupont wire is not a main
+motor supply harness. Use short insulated 20 AWG copper supply runs.
+Borrow soldering equipment or have a technician make and insulate the harness.
+A basic digital multimeter is needed for polarity and continuity checks.
+Servos and amplifier receive separate branches from the 5 V distribution,
+with common ground. Do not power motors through the ESP32 3.3 V regulator
+or the MB102. Do not connect external 5 V and laptop USB simultaneously
+until the delivered board's power-path isolation has been checked.
+The printed package does not replace the later electrical commissioning.

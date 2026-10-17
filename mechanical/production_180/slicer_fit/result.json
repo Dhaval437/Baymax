@@ -1,0 +1,168 @@
+{
+    "error_string": "Failed exporting 3mf files.",
+    "export_time": 0,
+    "layer_height": 0.20000000298023224,
+    "plate_index": 0,
+    "prepare_time": 267,
+    "return_code": -13,
+    "sliced_plates": [
+        {
+            "feature_type_times": {
+                "Bottom surface": 98.1333236694336,
+                "Bridge": 30.281400680541992,
+                "Custom": 362.4852600097656,
+                "Flush": 29.0,
+                "Gap infill": 43.9475212097168,
+                "Inner wall": 326.0400390625,
+                "Internal solid infill": 202.2020721435547,
+                "Outer wall": 227.65455627441406,
+                "Sparse infill": 44.88425064086914,
+                "Top surface": 132.83224487304688,
+                "Travel": 175.30421447753906,
+                "Undefined": 159.8802032470703
+            },
+            "filament_change_times": 0,
+            "filaments": [
+                {
+                    "filament_id": "GFL99",
+                    "id": 1,
+                    "main_used_g": 9.574933052062988,
+                    "total_used_g": 9.574933052062988
+                }
+            ],
+            "generate_support_material_time": 11,
+            "id": 1,
+            "infill_time": 271,
+            "layer_filament_change": 0,
+            "main_predication": 1252.331787109375,
+            "make_perimeters_time": 96,
+            "obj_cached_cnt": 0,
+            "objects": [
+                {
+                    "bbox": {
+                        "depth": 74.99293518066406,
+                        "height": 2.0,
+                        "width": 74.9929428100586,
+                        "x": 112.19841003417969,
+                        "y": 112.55985260009766,
+                        "z": 0.0
+                    },
+                    "id": 260,
+                    "name": "fit_speaker_D52_clearance.stl",
+                    "triangle_count": 384
+                },
+                {
+                    "bbox": {
+                        "depth": 21.999998092651367,
+                        "height": 2.0,
+                        "width": 33.0,
+                        "x": 136.70748901367188,
+                        "y": 98.11630249023438,
+                        "z": 0.0
+                    },
+                    "id": 194,
+                    "name": "servo-fit-3.stl",
+                    "triangle_count": 200
+                },
+                {
+                    "bbox": {
+                        "depth": 31.9999942779541,
+                        "height": 2.0,
+                        "width": 21.0,
+                        "x": 98.7548599243164,
+                        "y": 137.55050659179688,
+                        "z": 0.0
+                    },
+                    "id": 183,
+                    "name": "servo-fit-2.stl",
+                    "triangle_count": 160
+                },
+                {
+                    "bbox": {
+                        "depth": 36.062442779541016,
+                        "height": 2.0,
+                        "width": 36.062442779541016,
+                        "x": 99.52375793457031,
+                        "y": 99.90312194824219,
+                        "z": 0.0
+                    },
+                    "id": 172,
+                    "name": "servo-fit-1.stl",
+                    "triangle_count": 120
+                },
+                {
+                    "bbox": {
+                        "depth": 24.0000057220459,
+                        "height": 4.0,
+                        "width": 18.0,
+                        "x": 78.75489044189453,
+                        "y": 142.1473846435547,
+                        "z": 0.0
+                    },
+                    "id": 205,
+                    "name": "fit_lip_1_socket.stl",
+                    "triangle_count": 44
+                },
+                {
+                    "bbox": {
+                        "depth": 17.999996185302734,
+                        "height": 4.0,
+                        "width": 23.999996185302734,
+                        "x": 141.80650329589844,
+                        "y": 78.1163330078125,
+                        "z": 0.0
+                    },
+                    "id": 216,
+                    "name": "fit_lip_2_socket.stl",
+                    "triangle_count": 60
+                },
+                {
+                    "bbox": {
+                        "depth": 29.698484420776367,
+                        "height": 4.0,
+                        "width": 29.698486328125,
+                        "x": 78.36506652832031,
+                        "y": 108.4428482055664,
+                        "z": 0.0
+                    },
+                    "id": 227,
+                    "name": "fit_lip_3_socket.stl",
+                    "triangle_count": 76
+                },
+                {
+                    "bbox": {
+                        "depth": 29.698488235473633,
+                        "height": 4.0,
+                        "width": 29.698484420776367,
+                        "x": 107.32270812988281,
+                        "y": 78.00362396240234,
+                        "z": 0.0
+                    },
+                    "id": 238,
+                    "name": "fit_lip_male.stl",
+                    "triangle_count": 28
+                },
+                {
+                    "bbox": {
+                        "depth": 24.041629791259766,
+                        "height": 6.0,
+                        "width": 24.041627883911133,
+                        "x": 86.09800720214844,
+                        "y": 86.45885467529297,
+                        "z": 0.0
+                    },
+                    "id": 249,
+                    "name": "fit_M3_nut_and_screw.stl",
+                    "triangle_count": 454
+                }
+            ],
+            "sliced_time": 1383,
+            "sliced_time_with_cache": 899,
+            "total_predication": 1657.3624267578125,
+            "triangle_count": 1526,
+            "warning_message": ""
+        }
+    ],
+    "sparse_infill_density": 20.0,
+    "wall_loops": 3
+}

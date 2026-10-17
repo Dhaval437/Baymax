@@ -1,0 +1,74 @@
+[
+  {
+    "name": "servo-fit-1",
+    "x_mm": 22.0,
+    "y_mm": 30.0,
+    "width_mm": 31.0,
+    "depth_mm": 20.0,
+    "height_mm": 2.0
+  },
+  {
+    "name": "servo-fit-2",
+    "x_mm": 63.0,
+    "y_mm": 30.0,
+    "width_mm": 32.0,
+    "depth_mm": 21.0,
+    "height_mm": 2.0
+  },
+  {
+    "name": "servo-fit-3",
+    "x_mm": 105.0,
+    "y_mm": 30.0,
+    "width_mm": 33.0,
+    "depth_mm": 22.0,
+    "height_mm": 2.0
+  },
+  {
+    "name": "fit_lip_1_socket",
+    "x_mm": 148.0,
+    "y_mm": 30.0,
+    "width_mm": 24.0,
+    "depth_mm": 18.0,
+    "height_mm": 4.0
+  },
+  {
+    "name": "fit_lip_2_socket",
+    "x_mm": 182.0,
+    "y_mm": 30.0,
+    "width_mm": 24.0,
+    "depth_mm": 18.0,
+    "height_mm": 4.0
+  },
+  {
+    "name": "fit_lip_3_socket",
+    "x_mm": 22.0,
+    "y_mm": 62.0,
+    "width_mm": 24.0,
+    "depth_mm": 18.0,
+    "height_mm": 4.0
+  },
+  {
+    "name": "fit_lip_male",
+    "x_mm": 56.0,
+    "y_mm": 62.0,
+    "width_mm": 24.0,
+    "depth_mm": 18.0,
+    "height_mm": 4.0
+  },
+  {
+    "name": "fit_M3_nut_and_screw",
+    "x_mm": 90.0,
+    "y_mm": 62.0,
+    "width_mm": 20.0,
+    "depth_mm": 14.0,
+    "height_mm": 6.0
+  },
+  {
+    "name": "fit_speaker_D52_clearance",
+    "x_mm": 120.0,
+    "y_mm": 62.0,
+    "width_mm": 56.0,
+    "depth_mm": 56.0,
+    "height_mm": 2.0
+  }
+]

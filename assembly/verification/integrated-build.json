@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-17T07:10:24.1454892Z",
+  "sha256": "348FEBAD1C9CF1BE6618181704A952051808BB91E165F23EDE0F7E548EA827B3",
+  "uploaded": true,
+  "binary": "C:\\Users\\dhruv\\OneDrive\\Desktop\\Baymax\\.tools\\build\\baymax-integrated\\MiniBaymax.ino.bin",
+  "board": "esp32:esp32:esp32s3:FlashSize=16M,PSRAM=opi,CDCOnBoot=cdc,PartitionScheme=app3M_fat9M_16MB",
+  "port": "COM14",
+  "uploadEvidence": "esptool hash verified; serial BAYMAX v2 wifi=1 pca=1 motion_enabled=0"
+}

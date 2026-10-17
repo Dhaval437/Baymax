@@ -1,0 +1,25 @@
+{
+  "status": "Sliced prototype print package verified in Bambu Studio 2.8.2.61",
+  "plates": [
+    {
+      "plate": 1,
+      "pieces": 17,
+      "seconds": 11881,
+      "pla_grams": 104.0,
+      "outside_bed": false,
+      "gcode_checksum_verified": true
+    },
+    {
+      "plate": 2,
+      "pieces": 10,
+      "seconds": 25898,
+      "pla_grams": 149.08,
+      "outside_bed": false,
+      "gcode_checksum_verified": true
+    }
+  ],
+  "geometry": "27 closed single-island meshes",
+  "interference": "No reported static, nominal component or 2-degree sampled movement overlaps",
+  "physical_fit": "Not yet assembled; supplier-specific fit and strength remain untested",
+  "sliced_file_sha256": "d686b8686be53e83350955eb3cf966dea7d3818277895712e7745376292b4451"
+}

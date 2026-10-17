@@ -1,0 +1,288 @@
+{
+  "status": "EDITABLE PACKAGING DRAFT, NOT ASSEMBLY-READY",
+  "assembly_dimensions_mm": [
+    132.644,
+    70.95,
+    150.0
+  ],
+  "parts": [
+    {
+      "part": "01_torso_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 26876.52,
+      "bounds_min_mm": [
+        -44.46498489379883,
+        -35.479427337646484,
+        20.031381607055664
+      ],
+      "bounds_max_mm": [
+        44.46498489379883,
+        8.850006103515625,
+        116.58448028564453
+      ],
+      "dimensions_mm": [
+        88.93,
+        44.329,
+        96.553
+      ]
+    },
+    {
+      "part": "01_torso_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 16826.05,
+      "bounds_min_mm": [
+        -42.95760726928711,
+        9.149993896484375,
+        20.272764205932617
+      ],
+      "bounds_max_mm": [
+        42.957603454589844,
+        35.470603942871094,
+        116.28820037841797
+      ],
+      "dimensions_mm": [
+        85.915,
+        26.321,
+        96.015
+      ]
+    },
+    {
+      "part": "02_head_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 5540.24,
+      "bounds_min_mm": [
+        -33.9999885559082,
+        -22.9999942779541,
+        120.43375396728516
+      ],
+      "bounds_max_mm": [
+        33.999996185302734,
+        -0.149993896484375,
+        150.0
+      ],
+      "dimensions_mm": [
+        68.0,
+        22.85,
+        29.566
+      ]
+    },
+    {
+      "part": "02_head_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 5006.17,
+      "bounds_min_mm": [
+        -33.91267776489258,
+        0.149993896484375,
+        120.4706802368164
+      ],
+      "bounds_max_mm": [
+        33.91268539428711,
+        20.999990463256836,
+        149.9691925048828
+      ],
+      "dimensions_mm": [
+        67.825,
+        20.85,
+        29.499
+      ]
+    },
+    {
+      "part": "03_neck_sleeve_DRAFT",
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 1164.44,
+      "bounds_min_mm": [
+        -9.5,
+        -9.5,
+        113.5
+      ],
+      "bounds_max_mm": [
+        9.5,
+        9.5,
+        122.5
+      ],
+      "dimensions_mm": [
+        19.0,
+        19.0,
+        9.0
+      ]
+    },
+    {
+      "part": "04_left_arm_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 3089.82,
+      "bounds_min_mm": [
+        -66.32211303710938,
+        -14.499996185302734,
+        43.55685806274414
+      ],
+      "bounds_max_mm": [
+        -39.454345703125,
+        -0.149993896484375,
+        108.4431381225586
+      ],
+      "dimensions_mm": [
+        26.868,
+        14.35,
+        64.886
+      ]
+    },
+    {
+      "part": "04_left_arm_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 3089.82,
+      "bounds_min_mm": [
+        -66.32211303710938,
+        0.149993896484375,
+        43.55685806274414
+      ],
+      "bounds_max_mm": [
+        -39.454345703125,
+        14.499994277954102,
+        108.4431381225586
+      ],
+      "dimensions_mm": [
+        26.868,
+        14.35,
+        64.886
+      ]
+    },
+    {
+      "part": "05_left_foot_DRAFT",
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 25998.3,
+      "bounds_min_mm": [
+        -35.99999237060547,
+        -28.9999942779541,
+        0.0
+      ],
+      "bounds_max_mm": [
+        1.9999980926513672,
+        20.999990463256836,
+        22.0
+      ],
+      "dimensions_mm": [
+        38.0,
+        50.0,
+        22.0
+      ]
+    },
+    {
+      "part": "04_right_arm_front_DRAFT",
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 3089.82,
+      "bounds_min_mm": [
+        39.454345703125,
+        -14.499996185302734,
+        43.55685806274414
+      ],
+      "bounds_max_mm": [
+        66.3221206665039,
+        -0.149993896484375,
+        108.4431381225586
+      ],
+      "dimensions_mm": [
+        26.868,
+        14.35,
+        64.886
+      ]
+    },
+    {
+      "part": "04_right_arm_rear_DRAFT",
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 3089.82,
+      "bounds_min_mm": [
+        39.454345703125,
+        0.149993896484375,
+        43.55685806274414
+      ],
+      "bounds_max_mm": [
+        66.3221206665039,
+        14.499994277954102,
+        108.4431381225586
+      ],
+      "dimensions_mm": [
+        26.868,
+        14.35,
+        64.886
+      ]
+    },
+    {
+      "part": "05_right_foot_DRAFT",
+      "nonmanifold_edges": 0,
+      "signed_volume_mm3": 25998.3,
+      "bounds_min_mm": [
+        -1.9999942779541016,
+        -28.9999942779541,
+        0.0
+      ],
+      "bounds_max_mm": [
+        36.0,
+        20.999990463256836,
+        22.0
+      ],
+      "dimensions_mm": [
+        38.0,
+        50.0,
+        22.0
+      ]
+    }
+  ],
+  "hardware_aabb_overlaps": [],
+  "hardware_shell_surface_contacts": [
+    {
+      "hardware": "MEASURED_ESP32_64x29x15",
+      "shell": "01_torso_front_DRAFT"
+    },
+    {
+      "hardware": "MEASURED_ESP32_64x29x15",
+      "shell": "05_left_foot_DRAFT"
+    },
+    {
+      "hardware": "MEASURED_ESP32_64x29x15",
+      "shell": "05_right_foot_DRAFT"
+    },
+    {
+      "hardware": "PROVISIONAL_left_servo_envelope",
+      "shell": "01_torso_front_DRAFT"
+    },
+    {
+      "hardware": "PROVISIONAL_left_servo_envelope",
+      "shell": "01_torso_rear_DRAFT"
+    },
+    {
+      "hardware": "PROVISIONAL_left_servo_envelope",
+      "shell": "04_left_arm_rear_DRAFT"
+    },
+    {
+      "hardware": "PROVISIONAL_right_servo_envelope",
+      "shell": "01_torso_front_DRAFT"
+    },
+    {
+      "hardware": "PROVISIONAL_right_servo_envelope",
+      "shell": "01_torso_rear_DRAFT"
+    },
+    {
+      "hardware": "PROVISIONAL_right_servo_envelope",
+      "shell": "04_right_arm_rear_DRAFT"
+    },
+    {
+      "hardware": "PROVISIONAL_neck_servo_envelope",
+      "shell": "01_torso_front_DRAFT"
+    },
+    {
+      "hardware": "PROVISIONAL_neck_servo_envelope",
+      "shell": "03_neck_sleeve_DRAFT"
+    }
+  ],
+  "unresolved": [
+    "Physical servo gauge test",
+    "Horn and shaft geometry",
+    "Fasteners and load-bearing mounts",
+    "Shell alignment and fastening",
+    "Connector bends and USB access",
+    "Microphone/amplifier measured dimensions",
+    "Servo supply and power distribution",
+    "Full motion collision sweep",
+    "Slicer and physical print checks"
+  ]
+}

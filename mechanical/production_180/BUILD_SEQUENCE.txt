@@ -1,0 +1,22 @@
+Final 180 mm prototype — 1 October 2026
+
+Latest assembly: articulated_v3/Baymax_180_ARTICULATED_PROTOTYPE.blend
+Delivery: PRINT_PACKAGE_180MM/Baymax_180mm_P1S_PRINT.gcode.3mf
+Editable plates: PRINT_PACKAGE_180MM/Baymax_180mm_P1S_TWO_PLATES.3mf
+
+For a future geometry rebuild, use Blender 5.2 background scripts in order:
+1. build_articulated_v3.py
+2. finish_fasteners_v3.py
+3. final_arm_clearance.py
+4. repair_meshes_v3.py (check report and logs, not just process exit)
+5. audit_articulated_v3.py (all three overlap arrays must be empty)
+6. export_articulated.py
+7. render_articulated.py
+8. package_combined.py using normal project Python
+9. Open the combined project in Bambu Studio, Slice All, visually inspect
+   both plates, Save Project As to write native metadata/previews, and
+   Export all plate sliced file. Recheck all exported G-code checksums.
+
+Do not rerun package_combined.py over a released project merely to regenerate
+notes: it replaces the native saved file with generated geometry/settings.
+Earlier draft and HOLD directories are historical, not alternate print sets.

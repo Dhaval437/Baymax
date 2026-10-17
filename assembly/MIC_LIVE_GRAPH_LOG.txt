@@ -1,0 +1,25 @@
+
+Test 2026-10-15 09:09:34
+MIC START: 20 seconds. Quiet first 5 seconds; speak for next 10; quiet final 5. Levels only, not speech recognition.
+MIC t=1.0s samples=15872 rms_ac=13865.44 mean=2337.99 min=-30058 max=16566 zeros=0.4% clips=0 read_errors=0
+MIC t=2.0s samples=16128 rms_ac=2210.66 mean=227.72 min=-3987 max=14629 zeros=0.0% clips=0 read_errors=0
+MIC t=3.0s samples=16128 rms_ac=331.03 mean=-1245.56 min=-2005 max=-427 zeros=0.0% clips=0 read_errors=0
+MIC t=4.0s samples=16128 rms_ac=296.59 mean=-468.09 min=-1166 max=377 zeros=0.0% clips=0 read_errors=0
+MIC t=5.0s samples=16128 rms_ac=122.80 mean=-19.00 min=-434 max=457 zeros=0.3% clips=0 read_errors=0
+MIC t=6.0s samples=15872 rms_ac=1455.12 mean=-19.78 min=-8388 max=9410 zeros=0.1% clips=0 read_errors=0
+MIC t=7.0s samples=16128 rms_ac=948.42 mean=-106.51 min=-6782 max=7231 zeros=0.1% clips=0 read_errors=0
+MIC t=8.0s samples=16128 rms_ac=898.04 mean=-3.38 min=-8644 max=7463 zeros=0.2% clips=0 read_errors=0
+MIC t=9.0s samples=16128 rms_ac=1570.09 mean=-160.23 min=-11131 max=11599 zeros=0.1% clips=0 read_errors=0
+MIC t=10.1s samples=16128 rms_ac=647.28 mean=55.39 min=-5109 max=3299 zeros=0.1% clips=0 read_errors=0
+MIC t=11.1s samples=16128 rms_ac=146.95 mean=140.16 min=-348 max=663 zeros=0.2% clips=0 read_errors=0
+MIC t=12.1s samples=16128 rms_ac=781.40 mean=-166.83 min=-7904 max=6908 zeros=0.0% clips=0 read_errors=0
+MIC t=13.1s samples=16128 rms_ac=1751.62 mean=-103.72 min=-6043 max=6848 zeros=0.0% clips=0 read_errors=0
+MIC t=14.1s samples=16128 rms_ac=1406.27 mean=129.17 min=-6322 max=9931 zeros=0.1% clips=0 read_errors=0
+MIC t=15.1s samples=16128 rms_ac=202.96 mean=-142.15 min=-861 max=543 zeros=0.2% clips=0 read_errors=0
+MIC t=16.1s samples=16128 rms_ac=1150.17 mean=-100.83 min=-8780 max=8130 zeros=0.2% clips=0 read_errors=0
+MIC t=17.1s samples=16128 rms_ac=1798.84 mean=166.70 min=-9432 max=12249 zeros=0.0% clips=0 read_errors=0
+MIC t=18.1s samples=16128 rms_ac=213.21 mean=-35.96 min=-711 max=443 zeros=0.2% clips=0 read_errors=0
+MIC t=19.1s samples=16128 rms_ac=217.54 mean=104.53 min=-463 max=713 zeros=0.2% clips=0 read_errors=0
+MIC t=20.0s samples=14080 rms_ac=1030.92 mean=-287.12 min=-6755 max=7359 zeros=0.0% clips=0 read_errors=0
+MIC STOPPED: acquisition off; no audio file recorded.
+MIC DONE: 20-second level test complete.

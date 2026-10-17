@@ -1,0 +1,26 @@
+{
+  "source": "https://www.tiankongrc.com/sale-51874362-tiankongrc-sg90-9g-micro-servo-motor-miuzei-mini-servos-motor-kit-metal-gear-servo-for-arduino-proje.html",
+  "case_aperture_mm": [
+    23.4,
+    13.5
+  ],
+  "parts": [
+    {
+      "name": "SG90_clamp_frame",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 2471.66044294827
+    },
+    {
+      "name": "SG90_tab_clamp_left",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 318.5600031280518
+    },
+    {
+      "name": "SG90_tab_clamp_right",
+      "nonmanifold_edges": 0,
+      "volume_mm3": 318.5600031280518
+    }
+  ],
+  "hardware": "Four M3 screws, nuts and suitable washers per clamp; lengths to be checked against actual tab thickness. Not yet confirmed owned.",
+  "status": "Standalone clamp design. Not integrated into shoulder or neck; no physical fit claim."
+}

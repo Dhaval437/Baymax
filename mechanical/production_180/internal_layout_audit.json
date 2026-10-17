@@ -1,0 +1,90 @@
+{
+  "source": "Baymax_180_MECHANICAL_DEVELOPMENT.blend",
+  "checks": [
+    {
+      "component": "Left shoulder servo CASE",
+      "against": "04_torso_front_DRAFT",
+      "intersection_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "component": "Left shoulder servo CASE",
+      "against": "04_torso_rear_DRAFT",
+      "intersection_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "component": "Right shoulder servo CASE",
+      "against": "04_torso_front_DRAFT",
+      "intersection_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "component": "Right shoulder servo CASE",
+      "against": "04_torso_rear_DRAFT",
+      "intersection_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "component": "Neck servo CASE",
+      "against": "04_torso_front_DRAFT",
+      "intersection_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "component": "Neck servo CASE",
+      "against": "04_torso_rear_DRAFT",
+      "intersection_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "component": "Speaker measured envelope",
+      "against": "04_torso_front_DRAFT",
+      "intersection_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "component": "Speaker measured envelope",
+      "against": "04_torso_rear_DRAFT",
+      "intersection_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "component": "Left shoulder servo CASE",
+      "against": "Right shoulder servo CASE",
+      "intersection_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "component": "Left shoulder servo CASE",
+      "against": "Neck servo CASE",
+      "intersection_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "component": "Left shoulder servo CASE",
+      "against": "Speaker measured envelope",
+      "intersection_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "component": "Right shoulder servo CASE",
+      "against": "Neck servo CASE",
+      "intersection_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "component": "Right shoulder servo CASE",
+      "against": "Speaker measured envelope",
+      "intersection_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "component": "Neck servo CASE",
+      "against": "Speaker measured envelope",
+      "intersection_mm3": 0.0,
+      "pass": true
+    }
+  ],
+  "limits": "Rigid case envelopes only. Servo tabs, horns, cable exits, brackets, minimum walls and motion still require checking."
+}

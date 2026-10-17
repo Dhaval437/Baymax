@@ -1,0 +1,245 @@
+[
+  {
+    "part": "01_base_box",
+    "plate": 1,
+    "x": 26.0,
+    "y": 36.0,
+    "width": 85.0,
+    "depth": 100.0,
+    "rotated": true
+  },
+  {
+    "part": "02_base_bottom",
+    "plate": 1,
+    "x": 26.0,
+    "y": 148.0,
+    "width": 100.0,
+    "depth": 85.0,
+    "rotated": false
+  },
+  {
+    "part": "08_power_entry_insert",
+    "plate": 1,
+    "x": 123.0,
+    "y": 36.0,
+    "width": 18.0,
+    "depth": 24.0,
+    "rotated": false
+  },
+  {
+    "part": "09_button_bracket",
+    "plate": 1,
+    "x": 123.0,
+    "y": 72.0,
+    "width": 12.0,
+    "depth": 23.0,
+    "rotated": true
+  },
+  {
+    "part": "07_Left_horn_clamp",
+    "plate": 1,
+    "x": 123.0,
+    "y": 107.0,
+    "width": 18.0,
+    "depth": 22.0,
+    "rotated": true
+  },
+  {
+    "part": "07_Right_horn_clamp",
+    "plate": 1,
+    "x": 147.0,
+    "y": 72.0,
+    "width": 18.0,
+    "depth": 22.0,
+    "rotated": true
+  },
+  {
+    "part": "15_servo_shim_1",
+    "plate": 1,
+    "x": 153.0,
+    "y": 36.0,
+    "width": 12.0,
+    "depth": 18.0,
+    "rotated": false
+  },
+  {
+    "part": "15_servo_shim_2",
+    "plate": 1,
+    "x": 177.0,
+    "y": 36.0,
+    "width": 18.0,
+    "depth": 12.0,
+    "rotated": true
+  },
+  {
+    "part": "15_servo_shim_3",
+    "plate": 1,
+    "x": 207.0,
+    "y": 36.0,
+    "width": 18.0,
+    "depth": 12.0,
+    "rotated": true
+  },
+  {
+    "part": "07_head_carrier",
+    "plate": 1,
+    "x": 177.0,
+    "y": 60.0,
+    "width": 16.0,
+    "depth": 16.0,
+    "rotated": false
+  },
+  {
+    "part": "07_head_horn_clamp",
+    "plate": 1,
+    "x": 205.0,
+    "y": 60.0,
+    "width": 16.0,
+    "depth": 16.0,
+    "rotated": false
+  },
+  {
+    "part": "12_Chest_badge",
+    "plate": 1,
+    "x": 177.0,
+    "y": 88.0,
+    "width": 8.957999999999998,
+    "depth": 7.712,
+    "rotated": false
+  },
+  {
+    "part": "10_talk_button",
+    "plate": 1,
+    "x": 153.0,
+    "y": 106.0,
+    "width": 8.0,
+    "depth": 8.0,
+    "rotated": false
+  },
+  {
+    "part": "13_Left_arm_access_plug",
+    "plate": 1,
+    "x": 197.958,
+    "y": 88.0,
+    "width": 6.699999999999999,
+    "depth": 6.699999999999999,
+    "rotated": false
+  },
+  {
+    "part": "13_Right_arm_access_plug",
+    "plate": 1,
+    "x": 216.658,
+    "y": 88.0,
+    "width": 6.699999999999999,
+    "depth": 6.699999999999999,
+    "rotated": false
+  },
+  {
+    "part": "11_button_retainer",
+    "plate": 1,
+    "x": 197.958,
+    "y": 106.7,
+    "width": 6.399999999999999,
+    "depth": 6.399999999999999,
+    "rotated": false
+  },
+  {
+    "part": "14_head_access_plug",
+    "plate": 1,
+    "x": 233.0,
+    "y": 60.0,
+    "width": 4.699999999999999,
+    "depth": 4.699999999999999,
+    "rotated": false
+  },
+  {
+    "part": "04_torso_front",
+    "plate": 2,
+    "x": 26.0,
+    "y": 36.0,
+    "width": 73.91,
+    "depth": 108.448,
+    "rotated": false
+  },
+  {
+    "part": "04_torso_rear",
+    "plate": 2,
+    "x": 26.0,
+    "y": 156.44799999999998,
+    "width": 107.841,
+    "depth": 72.628,
+    "rotated": true
+  },
+  {
+    "part": "06_Right_arm_and_hand_front",
+    "plate": 2,
+    "x": 145.841,
+    "y": 36.0,
+    "width": 72.678,
+    "depth": 21.107,
+    "rotated": true
+  },
+  {
+    "part": "06_Left_arm_and_hand_front",
+    "plate": 2,
+    "x": 111.91,
+    "y": 36.0,
+    "width": 21.107,
+    "depth": 72.678,
+    "rotated": false
+  },
+  {
+    "part": "06_Left_arm_and_hand_rear",
+    "plate": 2,
+    "x": 111.91,
+    "y": 120.678,
+    "width": 71.342,
+    "depth": 20.878,
+    "rotated": true
+  },
+  {
+    "part": "06_Right_arm_and_hand_rear",
+    "plate": 2,
+    "x": 145.841,
+    "y": 153.55599999999998,
+    "width": 20.878,
+    "depth": 71.342,
+    "rotated": false
+  },
+  {
+    "part": "03_Leg_left",
+    "plate": 2,
+    "x": 145.017,
+    "y": 69.107,
+    "width": 29.869,
+    "depth": 32.895,
+    "rotated": false
+  },
+  {
+    "part": "03_Leg_right",
+    "plate": 2,
+    "x": 186.886,
+    "y": 69.107,
+    "width": 29.870000000000005,
+    "depth": 32.895,
+    "rotated": false
+  },
+  {
+    "part": "05_head_front",
+    "plate": 2,
+    "x": 195.252,
+    "y": 114.00200000000001,
+    "width": 27.760999999999996,
+    "depth": 18.477,
+    "rotated": false
+  },
+  {
+    "part": "05_head_rear",
+    "plate": 2,
+    "x": 195.252,
+    "y": 144.479,
+    "width": 27.711,
+    "depth": 15.66,
+    "rotated": false
+  }
+]

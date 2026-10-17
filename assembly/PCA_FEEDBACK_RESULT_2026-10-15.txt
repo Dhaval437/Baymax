@@ -1,0 +1,10 @@
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=121
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=3 ON=00:00 OFF=10:00
+MEASURE: channel3 -> GPIO10, nominal 1500us/50Hz, maximum 5 seconds; X cancels.
+PHYSICAL INPUT: samples=90 missing=0 high_us=1390.9 low_us=17170.8 estimated_Hz=53.87 high_min=1390 high_max=1392
+DONE: all outputs full-off verified.
+STOPPED: all 16 full-off registers verified.
+PCA STATUS ready=1 active=-1 prescale=121
+REGISTERS MODE1=20 MODE2=04 HEAD_CHANNEL=3 ON=00:00 OFF=10:00
+

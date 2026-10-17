@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-17T07:04:56.815Z",
+  "passed": true,
+  "stages": [
+    "WAV upload",
+    "local transcription",
+    "local chat",
+    "local speech synthesis",
+    "async PCM download"
+  ],
+  "pcmBytes": 297536,
+  "seconds": 6.198666666666667,
+  "elapsedSeconds": 42.213,
+  "physicalPlaybackTested": false,
+  "motorsMoved": false
+}

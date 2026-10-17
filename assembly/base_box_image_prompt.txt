@@ -1,0 +1,24 @@
+Create a clear beginner-friendly assembly infographic for a small DIY white Baymax robot and its black rectangular electronics base. Landscape, high-resolution, clean white background, generous spacing, legible English labels. This is a suggested placement illustration, NOT an exact CAD fit or a pin-location diagram. Title "BAYMAX: WHAT GOES INSIDE THE BLACK BOX". Prominent subtitle "Suggested layout — dry-fit boards and lid before fixing".
+
+Main left area: large slightly isometric top-down view of an OPEN black rectangular plastic base (nominal outer footprint 100 x 85 mm, low walls), detached bottom lid beside it. Show four recognizable miniature circuit boards inside laid flat on insulated supports, without touching or stacking: black ESP32-S3 dev board with TWO USB-C ports accessible for servicing at front-left; elongated blue PCA9685 16-channel board with yellow/red/black three-pin headers and green screw terminal behind it; tiny purple MAX98357A amplifier at right-front; small brown soldered perfboard/power junction at right-back. Clean soldered insulated short wire harnesses, no solderless breadboard, no MB102 regulator, no physical pushbutton, no battery. A red/black low-voltage 5V pair enters rear through a cable strain relief. Near junction show an optional electrolytic capacitor, clearly optional. Do NOT draw individual pin numbers on realistic miniature boards: these are not exact pin positions. Keep wires conceptual grouped bundles.
+
+Numbered callout labels outside box, neatly separated:
+"1  ESP32-S3 — controller"
+"2  PCA9685 — three servo connections"
+"3  MAX98357A — speaker amplifier"
+"4  Soldered power junction — +5V / GND"
+"5  Cable entry + strain relief"
+"Optional: 1000 µF, 10 V capacitor"
+Small note under base: "No exposed copper underneath. Keep USB, terminals and lid screws accessible."
+
+Right area: simple friendly white Baymax robot outline above its base, with clearly visible component LOCATION labels (not an exploded joint diagram): "Head servo — neck"; "Arm servos — shoulders"; "Microphone — behind front sound hole"; "Speaker — behind rear body grille". Show grouped wire harness rising from base through legs, label "Wires go UP through the legs". Do not put motors or speaker inside base.
+
+Bottom full-width practical strip, big readable:
+"POWER OFF BEFORE SOLDERING"
+"5V supply stays OUTSIDE; only low-voltage wires enter."
+"USB testing: disconnect external +5V feed to ESP32."
+"Normal use: USB unplugged; removable +5V feed powers ESP32."
+"All grounds common. Speaker + / − go ONLY to amplifier outputs."
+Small disclaimer "Use the written wiring table for exact pins. Illustration not to scale."
+
+Avoid extra hardware, random made-up pin text, power buttons, mains wiring inside box, stacked bare PCBs, soldering while powered, arrows pointing into wrong component. Warm but precise technical illustration, professional electronics assembly guide, recognizable real board colors.
