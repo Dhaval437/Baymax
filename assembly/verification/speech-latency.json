@@ -1,0 +1,14 @@
+{
+  "text": "I am here to help. What would you like to talk about?",
+  "seed": 7,
+  "date": "2026-10-17T07:49:03.803Z",
+  "sameModelAndSettings": true,
+  "previousMs": 18225,
+  "warmUpMs": 8555,
+  "residentMs": [
+    3582,
+    3234
+  ],
+  "audioSeconds": 3.4026666666666667,
+  "savedPercent": 82
+}

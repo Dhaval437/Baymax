@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-17T07:04:56.815Z",
+  "date": "2026-10-17T07:52:39.374Z",
   "passed": true,
   "stages": [
     "WAV upload",
@@ -8,9 +8,9 @@
     "local speech synthesis",
     "async PCM download"
   ],
-  "pcmBytes": 297536,
-  "seconds": 6.198666666666667,
-  "elapsedSeconds": 42.213,
+  "pcmBytes": 198880,
+  "seconds": 4.1433333333333335,
+  "elapsedSeconds": 34.998,
   "physicalPlaybackTested": false,
   "motorsMoved": false
 }

@@ -27,3 +27,5 @@ Source: public/robot-dashboard.html. Updated 17 October 2026.
 Uses the existing warm #f5f4ef background, #fffefa cards, #eaf0e5 active/reply panels, #243b3a text, #536760 secondary text, 1px #dce2d8 borders, 24px card radius, 26px padding and 22px gaps. Green #254e43 plots actual microphone RMS; dashed amber #b07b3b marks the capture threshold. Status always has text, stale data is explicitly labelled, and graph gaps remain gaps. Timers use tabular numerals. User/provider text uses textContent. Status is a polite live region; details has a visible #bf8654 keyboard focus outline.
 
 This robot dashboard observes the user-authorized auto-listening ESP32 through USB; it never requests the laptop microphone. Read-only browser state is loopback-only. No fabricated telemetry, response-time estimates, credentials or raw audio are displayed. Current transcript/reply are memory-only and expire after five minutes.
+
+When reply text exists but synthesis is still running, explicitly show “Reply text ready — creating its audio…” so text availability is not confused with speaker readiness.

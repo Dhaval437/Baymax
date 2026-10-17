@@ -13,6 +13,12 @@ The integrated code is in `firmware/MiniBaymax`. It replaces the old button-oper
 
 Local model generation can take several seconds or longer. The ESP32 polls for completion rather than holding one long HTTP request. It downloads the complete PCM before playback to avoid network-induced audio gaps. Audio uses the tested 24 kHz / 32-bit stereo I2S output, identical left/right samples, a peak ceiling of 8000 and short fades. Amplifier loudness/distortion still needs the later physical audio work you requested.
 
+### Faster local speech — 17 October
+
+The launcher now warms a persistent Python speech worker once. Sopro's voice model, its prepared reference voice, and Whisper stay in memory for subsequent requests, instead of starting a Python process and loading models for every turn. Voice model precision, generation settings and smoothing filters are unchanged. Cached models load offline. The worker uses private stdin/stdout pipes, a bounded queue, operation timeouts and restart-on-next-request after a crash. No new network service is exposed. Set `BAYMAX_LEGACY_SPEECH=1` for the previous per-request path when diagnosing a regression (restart required).
+
+Measured with the same test sentence: previous voice process 18.225 s; resident requests 3.582 s and 3.234 s after an 8.555 s one-time preparation. This is a local synthesis benchmark, not a guarantee of robot end-to-end latency; generated speech length and laptop load vary. Full results: `assembly/verification/speech-latency.json`. Reply text still appears before synthesis completes; the dashboard explicitly labels that interval as audio creation.
+
 ## Start after assembly
 
 1. Double-click **Start-Baymax.cmd** in the Baymax folder. Leave its window open. It checks the local tools and matching firmware settings before starting the robot server.
