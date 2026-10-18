@@ -130,8 +130,8 @@ bool playReply(size_t bytes) {
     int16_t value = int16_t(uint16_t(replyAudio[i]) | uint16_t(replyAudio[i + 1]) << 8);
     peak = max(peak, abs(int(value)));
   }
-  // Limit normalization to 2x; retain the tested 8000 peak ceiling without clipping.
-  float gain = fminf(2.0f, float(BAYMAX_VOICE_PEAK) / peak);
+  // Bound quiet-recording amplification and retain digital headroom at the configured peak.
+  float gain = fminf(3.0f, float(BAYMAX_VOICE_PEAK) / peak);
   audio.setPins(4, 5, 7, -1);
   if (!audio.begin(I2S_MODE_STD, SPEAKER_RATE, I2S_DATA_BIT_WIDTH_32BIT, I2S_SLOT_MODE_STEREO)) {
     audio.end(); pinMode(7, OUTPUT); digitalWrite(7, LOW); return false;

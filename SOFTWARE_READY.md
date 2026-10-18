@@ -11,7 +11,7 @@ The integrated code is in `firmware/MiniBaymax`. It replaces the old button-oper
 5. Pauses microphone recording during processing and playback, waits after playback, then resumes. The shared microphone/amplifier clocks are used sequentially.
 6. Uses local Whisper, Ollama and the existing smooth voice generator on the laptop. Keep the laptop awake, connected to the same Wi-Fi, with `Start-Baymax.cmd` running. This version is not standalone without the laptop.
 
-Local model generation can take several seconds or longer. The ESP32 polls for completion rather than holding one long HTTP request. It downloads the complete PCM before playback to avoid network-induced audio gaps. Audio uses the tested 24 kHz / 32-bit stereo I2S output, identical left/right samples, a peak ceiling of 8000 and short fades. Amplifier loudness/distortion still needs the later physical audio work you requested.
+Local model generation can take several seconds or longer. The ESP32 polls for completion rather than holding one long HTTP request. It downloads the complete PCM before playback to avoid network-induced audio gaps. Audio uses the tested 24 kHz / 32-bit stereo I2S output, identical left/right samples, a peak ceiling of 12000, amplification capped at 3x, and short fades. Amplifier loudness/distortion still needs the later physical audio work you requested.
 
 ### Faster local speech — 17 October
 
@@ -37,7 +37,7 @@ The saved laptop address was updated to **192.168.31.126**. A router DHCP reserv
 
 Motor support is implemented for PCA9685 **head 0, left arm 1, right arm 2**, SDA **GPIO8**, SCL **GPIO9**, address **0x40**. It uses the measured oscillator **26,920,000 Hz**, prescale **130**, about **50.07 Hz**. All 16 channels are switched off at boot; there are no old direct GPIO16/17/18 servo commands.
 
-**Movement is disabled by default while you finish assembly.** In `firmware/MiniBaymax/RobotSettings.h`, `BAYMAX_MOTION_ENABLED` is `0`. Once the horns are centered and the assembled joints have been checked, set it to `1` (or define it in private `config.h`) and rebuild/upload. Review each `JOINTS` centre, travel limits and direction first. The initial 1400–1600 µs bounds are conservative commissioning values, not measured mechanical limits.
+**The current private device configuration enables movement for the requested combined voice/motor test (17 October).** `config.h` overrides `BAYMAX_MOTION_ENABLED` to `1`; the shared default in `RobotSettings.h` remains `0`. Head channel 0 gestures on greetings; reply gestures alternate arm channels 1 and 2. The initial 1400–1600 µs bounds are conservative commissioning values, not measured mechanical limits. Actual assembled movement still needs observation. To return to voice-only operation, set the private override to `0` and rebuild/upload.
 
 When enabled, a greeting triggers a small head gesture; replies alternate small arm gestures. Only one joint moves at a time. Each movement ramps smoothly, returns to centre and turns its PWM off within 3.5 seconds. This does not provide continuous holding torque. I2C errors disable motion until restart. Actual loaded-joint travel and neutral positions still require assembly testing.
 
@@ -74,3 +74,4 @@ Verification: 27 automated tests passed; a headless browser confirmed live ESP32
 The new firmware still needs an end-to-end test on the assembled robot. Compilation and simulated motor tests cannot prove wiring, sound quality, microphone sensitivity or mechanical travel. The existing working diagnostic code is preserved under `firmware/MicrophoneDiagnostic` and `firmware/PcaServoDiagnostic`.
 
 Raw recordings are temporary local files deleted after recognition. Accepted conversation history is held in laptop RAM, limited to four exchanges and cleared after five minutes without a turn. Temporary audio results expire after eight minutes. `.env`, private `config.h`, and compiled firmware contain private configuration; do not share them. The example configuration now contains placeholders only.
+

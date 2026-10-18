@@ -7,4 +7,4 @@
 // Leave off during assembly. See RobotSettings.h and SOFTWARE_READY.md.
 #define BAYMAX_MOTION_ENABLED 0
 #define BAYMAX_MIC_THRESHOLD 450
-#define BAYMAX_VOICE_PEAK 8000
+#define BAYMAX_VOICE_PEAK 12000

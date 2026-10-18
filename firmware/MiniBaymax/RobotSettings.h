@@ -11,7 +11,7 @@
 #define BAYMAX_MIC_THRESHOLD 450
 #endif
 #ifndef BAYMAX_VOICE_PEAK
-#define BAYMAX_VOICE_PEAK 8000
+#define BAYMAX_VOICE_PEAK 12000
 #endif
 // Set only after centering the bare servos and checking the assembled joints.
 // Each row is {centre us, minimum us, maximum us, direction}.
