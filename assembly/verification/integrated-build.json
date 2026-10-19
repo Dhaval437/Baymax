@@ -1,9 +1,7 @@
 {
+  "uploaded": false,
   "board": "esp32:esp32:esp32s3:FlashSize=16M,PSRAM=opi,CDCOnBoot=cdc,PartitionScheme=app3M_fat9M_16MB",
-  "date": "2026-10-17T10:17:20.1809799Z",
-  "sha256": "F152F031081B211A4BE11F2754414A767A6FADDA66D9736C85CDBE1821BC2635",
-  "binary": "C:\\Users\\dhruv\\OneDrive\\Desktop\\Baymax\\.tools\\build\\baymax-integrated\\MiniBaymax.ino.bin",
-  "uploaded": true,
-  "port": "COM14",
-  "uploadedAt": "2026-10-17T10:17:33.3322790Z"
+  "sha256": "1B75F27F979D51A74BA5F35E511807C1060A19E36F6A79D76992EB4121A08D3A",
+  "date": "2026-10-18T13:01:29.1447727Z",
+  "binary": "C:\\Users\\dhruv\\OneDrive\\Desktop\\Baymax\\.tools\\build\\baymax-integrated\\MiniBaymax.ino.bin"
 }

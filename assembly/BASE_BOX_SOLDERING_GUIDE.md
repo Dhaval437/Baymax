@@ -24,6 +24,12 @@ The illustration is a suggested arrangement, not a measured mounting drawing. Th
 
 ## 1. Prepare without power
 
+### Mounting correction — 18 October 2026
+
+The generated component-placement image incorrectly suggests screw standoffs for the user's hole-less ESP32. Do not copy those screw mounts. The CAD scripts `build_mechanical.py` and `finish_fasteners_v3.py` provide board support rails and tie slots on the removable bottom cover. The four corner screw locations close the enclosure; they do not mount the ESP32. Actual printed rails, header clearance and strap routing still require inspection. Use narrow nylon ties only where they can bear without loading components, buttons or pin connections; keep the antenna clear. Do not drill the PCB.
+
+The added PCA9685 has no verified mounting pattern in the original cover. Its placement and insulated holder must be fitted with all plugs and the lid present before fixing. `esp32-no-hole-mounting.png` illustrates the retention principle, not the exact printed rail geometry. If the printed cover lacks usable rails or slots, a separate holder is required.
+
 1. Unplug laptop USB and the external supply.
 2. Photograph the working wiring and label each servo plug HEAD, LEFT and RIGHT.
 3. Place the boards on insulated supports. Do not allow exposed solder joints to touch another board, a screw or loose metal.

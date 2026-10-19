@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "mode": "mock ESP32, no hardware",
+  "checks": [
+    "unlock",
+    "invalid Wi-Fi password",
+    "Wi-Fi submit and clear password",
+    "server error",
+    "pause",
+    "invalid firmware rejected",
+    "authenticated upload",
+    "no persistent browser secrets",
+    "lock",
+    "390px no overflow",
+    "desktop/mobile screenshots",
+    "no JS errors"
+  ]
+}

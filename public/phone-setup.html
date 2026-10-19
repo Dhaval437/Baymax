@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Baymax · Connect</title>
+<style>
+:root{--bg:#f5f4ef;--card:#fffefa;--ink:#243b3a;--muted:#536760;--line:#dce2d8;--green:#254e43;--soft:#eaf0e5;--focus:#bf8654}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Segoe UI",Arial,sans-serif}main{max-width:560px;margin:0 auto;padding:28px 18px 60px}header{display:flex;align-items:center;gap:16px;margin:8px 0 28px}.face{width:68px;height:44px;border-radius:50%;background:white;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none}.face:before,.face:after{content:"";width:10px;height:10px;border-radius:50%;background:var(--ink)}.face span{width:28px;height:2px;background:var(--ink)}h1{font-size:27px;line-height:1.1;margin:0 0 4px}h2{font-size:20px;margin:0 0 8px}p{margin:8px 0;color:var(--muted)}.eyebrow{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px;margin:18px 0}.status{background:var(--soft)}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:13px;margin-bottom:8px}.grid{display:grid;gap:14px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}label{display:block;font-size:14px;font-weight:600;margin:15px 0 6px}input:not([type=checkbox]){display:block;width:100%;min-height:48px;border:1px solid var(--line);border-radius:12px;padding:12px;background:white;color:var(--ink);font:inherit}input[type=checkbox]{width:18px;height:18px;flex:none;accent-color:var(--green)}button{font:600 15px "Segoe UI",Arial,sans-serif;min-height:48px;border:0;border-radius:12px;padding:12px 18px;cursor:pointer;background:var(--green);color:white}button:hover{background:#173b31}button.secondary{background:var(--soft);color:var(--ink)}button:disabled{opacity:.45;cursor:default}input:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:3px}.wide{width:100%;margin-top:18px}.small{font-size:13px}.notice{padding:14px;border-radius:12px;background:var(--soft);overflow-wrap:anywhere;white-space:pre-line}.error{background:#fff0e7;color:#713b22}.hidden,[hidden]{display:none!important}details summary{cursor:pointer;font-weight:600;padding:4px 0}code{overflow-wrap:anywhere}progress{width:100%;height:12px;accent-color:var(--green)}footer{font-size:13px;color:var(--muted);margin-top:24px}a{color:var(--green)}.check{display:flex;align-items:center;gap:8px;font-weight:400}#notice:empty{display:none}
+</style></head><body><main>
+<header><div class="face" aria-hidden="true"><span></span></div><div><h1>Baymax</h1><p style="margin:0">A new place. A familiar friend.</p></div></header>
+<p id="preview" class="notice" hidden>Design preview — no robot is connected. Settings and controls are disabled.</p>
+<section id="unlock" class="card"><div class="eyebrow">Your companion · Setup</div><h2>Let’s get connected.</h2><p>Use the setup key on your private Baymax setup card. This is different from your home Wi-Fi password.</p>
+<form id="unlockForm"><label for="key">Baymax setup key</label><input id="key" type="password" required autocomplete="off"><button class="wide">Unlock Baymax</button></form></section>
+<p id="notice" class="notice" role="status" aria-live="polite"></p>
+<div id="app" hidden>
+<section class="card status"><span id="badge" class="pill">Checking connection</span><h2 id="connection">Waiting for Baymax</h2><p id="network">Reading Wi-Fi status…</p><p id="robot" class="small"></p><p id="message" class="small"></p><div class="row" style="margin-top:16px"><button id="pause" class="secondary" type="button">Pause Baymax</button><button id="resume" type="button">Resume Baymax</button></div></section>
+<section class="card"><div class="eyebrow">01 · Network</div><h2>Choose Baymax’s Wi-Fi</h2><p>Enter a 2.4 GHz network or a compatible phone hotspot. Baymax remembers it after connecting.</p>
+<form id="wifiForm"><label for="ssid">Wi-Fi name</label><input id="ssid" autocomplete="off" autocapitalize="none" spellcheck="false" required maxlength="32" placeholder="Your Wi-Fi name"><label for="password">Wi-Fi password</label><input id="password" type="password" autocomplete="new-password" maxlength="64" placeholder="Leave blank only for an open network"><label class="check"><input type="checkbox" id="showPassword">Show password</label><button class="wide">Connect &amp; save</button></form>
+<p class="small">Changing networks can briefly disconnect your phone. Rejoin <strong id="apName">Baymax-Setup-…</strong> and reopen <code>http://192.168.4.1</code>. A failed connection keeps your previous settings.</p></section>
+<section class="card"><div class="eyebrow">02 · Conversation</div><h2>Connect to your laptop</h2><p>The laptop still runs Baymax’s voice and answers. Put it on the same Wi-Fi, open <strong>Start-Baymax</strong>, and copy its “Phone setup server address” here.</p>
+<form id="serverForm"><label for="server">Laptop server address</label><input id="server" type="url" required inputmode="url" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="http://192.168.1.20:8788"><button class="wide">Save laptop address</button></form><p class="small">Wi-Fi connected does not mean the conversation server is ready. Start it on the laptop, then tap Resume Baymax and say “Baymax” or “ouch”.</p></section>
+<section class="card"><details><summary>Wireless firmware update</summary><p>Choose a Baymax phone-setup <strong>application .bin</strong> made for this ESP32-S3. Do not use a bootloader, partition file or merged image.</p><form id="updateForm"><label for="firmware">Firmware file</label><input id="firmware" type="file" accept=".bin,application/octet-stream" required><label class="check"><input id="confirmUpdate" type="checkbox" required>I’ll keep Baymax powered until the update finishes and it restarts.</label><button class="wide">Install update</button></form><progress id="progress" value="0" max="100" hidden aria-label="Firmware upload progress"></progress><p id="uploadStatus" class="small" aria-live="polite"></p><p class="small">Updating pauses listening and motor output. A completed update restarts the robot; an interrupted update needs a retry. Use this only on your own trusted network.</p></details></section>
+<button id="lock" class="secondary" type="button">Lock setup page</button></div>
+<footer>Works in your phone’s browser. No app-store install or cloud account. Internet-login pages and enterprise Wi-Fi are not supported.</footer>
+</main><script>
+const $=id=>document.getElementById(id);
+let key='',session='',timer=null,working=false,uploading=false;
+const isPreview=new URLSearchParams(location.search).has('preview');
+function note(text,error=false){$('notice').textContent=text;$('notice').classList.toggle('error',error)}
+function auth(){return {Authorization:'Basic '+btoa('baymax:'+key),'X-Baymax-Session':session}}
+async function request(path,body){
+ const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),12000);
+ try{const response=await fetch(path,{method:body?'POST':'GET',headers:auth(),body,signal:controller.signal,cache:'no-store'});let data;try{data=await response.json()}catch{throw Error('Baymax did not return a setup response. Reconnect to its network.')}
+ if(!response.ok)throw Error(data.error||data.message||'Could not complete the request.');return data;
+ }finally{clearTimeout(timeout)}
+}
+function render(data){
+ session=data.session;$('badge').textContent=data.joining?'Connecting…':data.connected?'Wi-Fi connected':'Needs Wi-Fi';
+ $('connection').textContent=data.connected?'Hello, we’re connected.':'Let’s find your network.';
+ $('network').textContent=data.connected?data.ssid+' · '+data.ip:'Join Baymax’s setup network to change Wi-Fi.';
+ $('apName').textContent=data.setupNetwork;$('robot').textContent=data.listening?'Listening enabled · laptop server required':'Baymax paused';
+ $('message').textContent=data.message||'';
+ if(document.activeElement!==$('server')&&!$('server').value)$('server').value=data.server;
+ $('resume').disabled=!data.connected||data.joining||!data.storage;
+ if(!data.storage)note('Settings storage is unavailable. Changes cannot be saved.',true);
+}
+async function poll(){if(!key||uploading)return;try{render(await request('/api/status'))}catch{note('Connection interrupted. Rejoin Baymax’s setup network or open its new Wi-Fi address. Your entered password is not stored in this browser.',true)}}
+$('unlockForm').onsubmit=async e=>{e.preventDefault();key=$('key').value.trim();try{render(await request('/api/status'));$('key').value='';$('unlock').hidden=true;$('app').hidden=false;note('Unlocked.');clearInterval(timer);timer=setInterval(poll,2500)}catch(error){key='';note(error.message,true)}};
+async function action(path,values){if(working||isPreview)return;working=true;try{const data=await request(path,new URLSearchParams(values));note(data.message||'Saved.');await poll()}catch(error){note(error.message,true)}finally{working=false}}
+$('wifiForm').onsubmit=async e=>{e.preventDefault();if(working)return;const ssid=$('ssid').value,password=$('password').value;const bytes=new TextEncoder();if(!bytes.encode(ssid).length||bytes.encode(ssid).length>32){note('Wi-Fi names must be 1–32 bytes.',true);return}if(password&&!(bytes.encode(password).length>=8&&bytes.encode(password).length<=63)&&!/^([0-9a-f]{64})$/i.test(password)){note('Use an 8–63 byte password, a 64-digit hexadecimal key, or leave blank for an open network.',true);return}$('password').value='';await action('/api/wifi',{ssid,password})};
+$('showPassword').onchange=()=>{$('password').type=$('showPassword').checked?'text':'password'};
+$('serverForm').onsubmit=async e=>{e.preventDefault();await action('/api/server',{server:$('server').value.trim()})};
+$('pause').onclick=()=>action('/api/control',{action:'pause'});$('resume').onclick=()=>action('/api/control',{action:'resume'});
+$('lock').onclick=()=>{key='';session='';clearInterval(timer);$('app').hidden=true;$('unlock').hidden=false;$('password').value='';note('Setup page locked.');$('key').focus()};
+$('updateForm').onsubmit=e=>{
+ e.preventDefault();if(working||isPreview)return;
+ const file=$('firmware').files[0];if(!file||!file.name.toLowerCase().endsWith('.bin')||file.size<24||file.size>3145728){note('Choose a Baymax application .bin under 3 MiB.',true);return}
+ working=uploading=true;$('progress').hidden=false;$('progress').value=0;$('updateForm').querySelector('button').disabled=true;
+ const xhr=new XMLHttpRequest();xhr.open('POST','/api/update');xhr.timeout=180000;for(const [name,value]of Object.entries(auth()))xhr.setRequestHeader(name,value);
+ xhr.upload.onprogress=e=>{if(e.lengthComputable){$('progress').value=e.loaded/e.total*100;$('uploadStatus').textContent='Uploading '+Math.round(e.loaded/e.total*100)+'% — keep power connected.'}};
+ const finish=()=>{working=uploading=false;$('updateForm').querySelector('button').disabled=false};
+ xhr.onload=()=>{finish();let data;try{data=JSON.parse(xhr.responseText)}catch{data={message:'Unexpected response. Reconnect and check Baymax before retrying.'}}note(data.error||data.message,xhr.status!==200);$('uploadStatus').textContent=xhr.status===200?'Upload complete. Waiting for Baymax to restart…':'Update was not confirmed. Existing firmware should remain selected.'};
+ xhr.onerror=xhr.ontimeout=()=>{finish();note('Upload interrupted or connection lost. Reconnect and check Baymax before retrying. Keep power on.',true)};
+ const form=new FormData();form.append('firmware',file);xhr.send(form);
+};
+if(isPreview){$('preview').hidden=false;$('unlock').hidden=true;$('app').hidden=false;render({session:'',connected:false,ssid:'',ip:'',setupNetwork:'Baymax-Setup-…',server:'',joining:false,listening:false,storage:true,message:'Preview only. Install the setup firmware once to connect your robot.'});document.querySelectorAll('input,button').forEach(e=>e.disabled=true)}
+</script></body></html>

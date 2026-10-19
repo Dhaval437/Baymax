@@ -1,0 +1,11 @@
+{
+  "bytes": 1111872,
+  "fitsOtaSlot": true,
+  "espImageMagic": true,
+  "esp32s3ChipId": true,
+  "phoneSetupMarker": true,
+  "sha256": "1b75f27f979d51a74ba5f35e511807c1060a19e36f6a79d76992eb4121a08d3a",
+  "uploaded": false,
+  "physicalProvisioningTested": false,
+  "physicalOtaTested": false
+}

@@ -3,6 +3,8 @@ $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path -Parent $PSScriptRoot
 Push-Location -LiteralPath $taskRoot
 try {
+    & node 'assembly/prepare-phone-setup.mjs'
+    if ($LASTEXITCODE -ne 0) { throw 'Phone setup page preparation failed. Nothing uploaded.' }
     $taskCli = Join-Path $taskRoot '.tools/arduino-cli/arduino-cli.exe'
     $taskBuild = Join-Path $taskRoot '.tools/build/baymax-integrated'
     $taskBoard = 'esp32:esp32:esp32s3:FlashSize=16M,PSRAM=opi,CDCOnBoot=cdc,PartitionScheme=app3M_fat9M_16MB'
@@ -11,6 +13,10 @@ try {
     $taskReportDir = Join-Path $PSScriptRoot 'verification'
     New-Item -ItemType Directory -Path $taskReportDir -Force | Out-Null
     $taskBinary = Join-Path $taskBuild 'MiniBaymax.ino.bin'
+    $taskOtaDir = Join-Path $taskRoot 'output/phone-setup'
+    New-Item -ItemType Directory -Force -Path $taskOtaDir | Out-Null
+    Copy-Item -LiteralPath $taskBinary -Destination (Join-Path $taskOtaDir 'Baymax-ESP32S3-application.bin') -Force
+    Get-FileHash -LiteralPath $taskBinary -Algorithm SHA256 | Select-Object Algorithm,Hash | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $taskOtaDir 'sha256.json') -Encoding utf8
     @{
         date = (Get-Date).ToUniversalTime().ToString('o')
         board = $taskBoard

@@ -1,0 +1,160 @@
+{
+    "error_string": "Success.",
+    "export_time": 1304,
+    "layer_height": 0.11999999731779099,
+    "plate_index": 1,
+    "prepare_time": 164,
+    "return_code": 0,
+    "sliced_plates": [
+        {
+            "feature_type_times": {
+                "Bottom surface": 4.616057872772217,
+                "Bridge": 12.500825881958008,
+                "Brim": 45.931617736816406,
+                "Custom": 364.3108825683594,
+                "Flush": 29.0,
+                "Gap infill": 85.7463150024414,
+                "Inner wall": 431.24005126953125,
+                "Internal solid infill": 305.75018310546875,
+                "Outer wall": 337.89111328125,
+                "Overhang wall": 66.14009857177734,
+                "Sparse infill": 29.087305068969727,
+                "Support": 238.74200439453125,
+                "Support interface": 27.18902587890625,
+                "Top surface": 21.438417434692383,
+                "Travel": 503.2885437011719,
+                "Undefined": 487.668701171875
+            },
+            "filament_change_times": 0,
+            "filaments": [
+                {
+                    "filament_id": "GFL99",
+                    "id": 1,
+                    "main_used_g": 6.286376953125,
+                    "total_used_g": 6.286376953125
+                }
+            ],
+            "generate_support_material_time": 1981,
+            "id": 1,
+            "infill_time": 619,
+            "layer_filament_change": 0,
+            "main_predication": 2080.5009765625,
+            "make_perimeters_time": 672,
+            "obj_cached_cnt": 0,
+            "objects": [
+                {
+                    "bbox": {
+                        "depth": 17.641693115234375,
+                        "height": 16.53000831604004,
+                        "width": 27.76001739501953,
+                        "x": 40.0,
+                        "y": 45.0,
+                        "z": 0.0
+                    },
+                    "id": 5,
+                    "name": "01_LED_head_front",
+                    "triangle_count": 15046
+                },
+                {
+                    "bbox": {
+                        "depth": 17.554031372070313,
+                        "height": 12.270002365112305,
+                        "width": 27.5518798828125,
+                        "x": 79.76001739501953,
+                        "y": 45.0,
+                        "z": 0.0
+                    },
+                    "id": 9,
+                    "name": "02_LED_head_rear",
+                    "triangle_count": 10544
+                },
+                {
+                    "bbox": {
+                        "depth": 4.899993896484375,
+                        "height": 0.7000002861022949,
+                        "width": 4.0,
+                        "x": 119.31189727783203,
+                        "y": 45.0,
+                        "z": 0.0
+                    },
+                    "id": 13,
+                    "name": "03_Left_LED_retainer",
+                    "triangle_count": 28
+                },
+                {
+                    "bbox": {
+                        "depth": 4.899993896484375,
+                        "height": 0.7000002861022949,
+                        "width": 4.000007629394531,
+                        "x": 135.3118896484375,
+                        "y": 45.0,
+                        "z": 0.0
+                    },
+                    "id": 17,
+                    "name": "03_Right_LED_retainer",
+                    "triangle_count": 28
+                },
+                {
+                    "bbox": {
+                        "depth": 16.0,
+                        "height": 2.0,
+                        "width": 16.00000762939453,
+                        "x": 151.3118896484375,
+                        "y": 45.0,
+                        "z": 0.0
+                    },
+                    "id": 21,
+                    "name": "05_Original_head_carrier",
+                    "triangle_count": 1062
+                },
+                {
+                    "bbox": {
+                        "depth": 16.0,
+                        "height": 1.5,
+                        "width": 16.00000762939453,
+                        "x": 179.3118896484375,
+                        "y": 45.0,
+                        "z": 0.0
+                    },
+                    "id": 25,
+                    "name": "06_Original_horn_clamp",
+                    "triangle_count": 1338
+                },
+                {
+                    "bbox": {
+                        "depth": 4.699999809265137,
+                        "height": 5.0,
+                        "width": 4.699999809265137,
+                        "x": 40.0,
+                        "y": 90.0,
+                        "z": 0.0
+                    },
+                    "id": 29,
+                    "name": "07_Original_roof_plug",
+                    "triangle_count": 446
+                }
+            ],
+            "sliced_time": 6243,
+            "sliced_time_with_cache": 2647,
+            "total_predication": 2487.161376953125,
+            "triangle_count": 28492,
+            "warning_message": ""
+        }
+    ],
+    "sparse_infill_density": 20.0,
+    "upward_compatible_machine": [
+        "Bambu Lab P1P 0.4 nozzle",
+        "Bambu Lab X1 0.4 nozzle",
+        "Bambu Lab X1 Carbon 0.4 nozzle",
+        "Bambu Lab X1E 0.4 nozzle",
+        "Bambu Lab A1 0.4 nozzle",
+        "Bambu Lab H2D 0.4 nozzle",
+        "Bambu Lab H2D Pro 0.4 nozzle",
+        "Bambu Lab H2S 0.4 nozzle",
+        "Bambu Lab P2S 0.4 nozzle",
+        "Bambu Lab H2C 0.4 nozzle",
+        "Bambu Lab X2D 0.4 nozzle",
+        "Bambu Lab A2L 0.4 nozzle"
+    ],
+    "wall_loops": 3
+}

@@ -1,0 +1,225 @@
+{
+  "units": "mm",
+  "led_assumptions": {
+    "body_diameter": 3,
+    "flange_diameter": 3.8,
+    "flange_thickness": 0.7,
+    "tip_to_flange": 5.2,
+    "bore": 3.3
+  },
+  "fasteners": [
+    {
+      "x": -9.0,
+      "z": 175.7,
+      "outer_back_y": 5.330696105957031,
+      "screw": "M2 x 8 mm",
+      "engagement_mm": 2.819303894042969
+    },
+    {
+      "x": 10.0,
+      "z": 175.7,
+      "outer_back_y": 5.55267333984375,
+      "screw": "M2 x 8 mm",
+      "engagement_mm": 2.5973266601562504
+    }
+  ],
+  "mesh_checks": [
+    {
+      "part": "01_LED_head_front",
+      "nonmanifold_edges": 0,
+      "islands": 1,
+      "volume_mm3": 2326.914952563302,
+      "triangles": 15046
+    },
+    {
+      "part": "02_LED_head_rear",
+      "nonmanifold_edges": 0,
+      "islands": 1,
+      "volume_mm3": 1545.146235466157,
+      "triangles": 10544
+    },
+    {
+      "part": "05_Original_head_carrier",
+      "nonmanifold_edges": 0,
+      "islands": 1,
+      "volume_mm3": 298.33874981531187,
+      "triangles": 1062
+    },
+    {
+      "part": "06_Original_horn_clamp",
+      "nonmanifold_edges": 0,
+      "islands": 1,
+      "volume_mm3": 203.76925167279356,
+      "triangles": 1338
+    },
+    {
+      "part": "07_Original_roof_plug",
+      "nonmanifold_edges": 0,
+      "islands": 1,
+      "volume_mm3": 83.04730765286976,
+      "triangles": 446
+    },
+    {
+      "part": "03_Right_LED_retainer",
+      "nonmanifold_edges": 0,
+      "islands": 1,
+      "volume_mm3": 9.408000086784362,
+      "triangles": 28
+    },
+    {
+      "part": "03_Left_LED_retainer",
+      "nonmanifold_edges": 0,
+      "islands": 1,
+      "volume_mm3": 9.408000086784362,
+      "triangles": 28
+    }
+  ],
+  "intersections": [
+    {
+      "a": "REFERENCE Right LED lens",
+      "b": "05_Original_head_carrier",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "REFERENCE Right LED lens",
+      "b": "06_Original_horn_clamp",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "REFERENCE Right LED lens",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "REFERENCE Right LED lens",
+      "b": "02_LED_head_rear",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "REFERENCE Left LED lens",
+      "b": "05_Original_head_carrier",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "REFERENCE Left LED lens",
+      "b": "06_Original_horn_clamp",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "REFERENCE Left LED lens",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "REFERENCE Left LED lens",
+      "b": "02_LED_head_rear",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Right_LED_retainer",
+      "b": "05_Original_head_carrier",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Right_LED_retainer",
+      "b": "06_Original_horn_clamp",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Right_LED_retainer",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Right_LED_retainer",
+      "b": "02_LED_head_rear",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Right_LED_retainer insertion 0",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Right_LED_retainer insertion 0.25",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Right_LED_retainer insertion 0.5",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Right_LED_retainer insertion 0.75",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Left_LED_retainer",
+      "b": "05_Original_head_carrier",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Left_LED_retainer",
+      "b": "06_Original_horn_clamp",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Left_LED_retainer",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Left_LED_retainer",
+      "b": "02_LED_head_rear",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Left_LED_retainer insertion 0",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Left_LED_retainer insertion 0.25",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Left_LED_retainer insertion 0.5",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "03_Left_LED_retainer insertion 0.75",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "01_LED_head_front",
+      "b": "02_LED_head_rear",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "05_Original_head_carrier",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "05_Original_head_carrier",
+      "b": "02_LED_head_rear",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "06_Original_horn_clamp",
+      "b": "01_LED_head_front",
+      "intersection_mm3": 0
+    },
+    {
+      "a": "06_Original_horn_clamp",
+      "b": "02_LED_head_rear",
+      "intersection_mm3": 0
+    }
+  ],
+  "physical_fit_tested": false
+}

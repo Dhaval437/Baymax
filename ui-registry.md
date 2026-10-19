@@ -29,3 +29,11 @@ Uses the existing warm #f5f4ef background, #fffefa cards, #eaf0e5 active/reply p
 This robot dashboard observes the user-authorized auto-listening ESP32 through USB; it never requests the laptop microphone. Read-only browser state is loopback-only. No fabricated telemetry, response-time estimates, credentials or raw audio are displayed. Current transcript/reply are memory-only and expire after five minutes.
 
 When reply text exists but synthesis is still running, explicitly show “Reply text ready — creating its audio…” so text availability is not confused with speaker readiness.
+
+## Phone connection and update page — 18 October 2026
+
+Source: public/phone-setup.html, embedded in firmware/MiniBaymax/SetupPage.h by assembly/prepare-phone-setup.mjs.
+
+Uses the established #f5f4ef background, #fffefa panels, #243b3a primary text, #536760 secondary text, 1px #dce2d8 borders and #eaf0e5 status surfaces. Cards have 24px radius/padding; fields/buttons have 12px radius and minimum 48px touch targets. Primary actions are #254e43, hover #173b31. Focus is 3px #bf8654 with 3px offset. Error notices use #fff0e7 with #713b22 text. Segoe UI/Arial, 27px title, 20px panel headings, 16px body, 13px helper text. Numbered setup sections have small uppercase labels.
+
+Status always includes text and polite live feedback. All robot/network text uses textContent. Explicitly distinguish Wi-Fi connection from a reachable conversation server. Passwords remain in memory only and are cleared after submission/locking; no localStorage, analytics, fonts or remote scripts. Design-preview mode must be conspicuously labelled and disable controls. The phone page uses separate setup authentication; it does not expose the conversation token.

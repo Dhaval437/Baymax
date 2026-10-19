@@ -6,6 +6,7 @@
 #include "config.h"
 #include "RobotSettings.h"
 #include "ServoController.h"
+#include "PhoneSetup.h"
 
 // Baymax integrated firmware v2. No button required. Laptop runs Start-Baymax.cmd.
 constexpr uint32_t MIC_RATE = 16000, SPEAKER_RATE = 24000;
@@ -13,6 +14,7 @@ constexpr size_t MAX_SAMPLES = MIC_RATE * 8, PRE_SAMPLES = MIC_RATE / 4;
 constexpr size_t MAX_REPLY_BYTES = SPEAKER_RATE * 2 * 30;
 I2SClass audio;
 ServoController servos;
+PhoneSetup phone;
 Stream *console = &Serial0;
 uint8_t *recording = nullptr, *replyAudio = nullptr;
 int16_t preAudio[PRE_SAMPLES];
@@ -45,6 +47,9 @@ void status() {
     phase, listening, inConversation, WiFi.status() == WL_CONNECTED, servos.available(), servos.permitted(), servos.moving());
 }
 void controls() {
+  // Keep phone pause/status responsive during buffered audio playback/downloads.
+  // Network changes and OTA are rejected while a transfer is active.
+  if (busyIO) phone.tick();
   for (Stream *input : {static_cast<Stream*>(&Serial), static_cast<Stream*>(&Serial0)}) {
     while (input->available()) {
       console = input;
@@ -251,16 +256,23 @@ void setup() {
     phase = "error_config"; listening = false; console->println("Check DEVICE_URL and DEVICE_TOKEN in config.h."); return;
   }
   baseUrl.remove(baseUrl.length() - 5);
-  WiFi.mode(WIFI_STA); WiFi.setAutoReconnect(true); WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  phone.begin([](){
+    listening=false; inConversation=false; jobId="";
+    stopMic(); servos.stop(); phase="stopped";
+  },[](){
+    if (!recording || !replyAudio) return;
+    listening=true; inConversation=false; resumeAt=millis()+1000; phase="waiting";
+  },[](){return listening;},[](){return busyIO;});
+  baseUrl=phone.serverBase();
   wifiAttempt = millis(); resumeAt = millis() + 2000; phase = "waiting";
 }
 void loop() {
+  phone.tick(); baseUrl=phone.serverBase();
   controls(); servos.tick();
   if (!recording || !replyAudio || !baseUrl.endsWith("/device")) { delay(20); return; }
   if (!listening) { if (rx) stopMic(); delay(10); return; }
   if (WiFi.status() != WL_CONNECTED) {
     stopMic();
-    if (millis() - wifiAttempt >= 15000) { wifiAttempt = millis(); WiFi.reconnect(); console->println("Reconnecting Wi-Fi..."); }
     delay(10); return;
   }
   if (jobId.length()) pollReply(); else monitor();
