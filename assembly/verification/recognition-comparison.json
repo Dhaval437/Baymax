@@ -1,0 +1,77 @@
+{
+  "kind": "Synthetic loopback; not physical microphone validation",
+  "results": [
+    {
+      "model": "tiny.en",
+      "expected": "It's paining.",
+      "heard": "It's a painting.",
+      "elapsedMs": 773
+    },
+    {
+      "model": "tiny.en",
+      "expected": "My hand is hurting.",
+      "heard": "My hand is hurting.",
+      "elapsedMs": 516
+    },
+    {
+      "model": "tiny.en",
+      "expected": "My heart is beating fast.",
+      "heard": "My heart is beating fast.",
+      "elapsedMs": 518
+    },
+    {
+      "model": "tiny.en",
+      "expected": "Baymax, check status.",
+      "heard": "Baymax check status.",
+      "elapsedMs": 569
+    },
+    {
+      "model": "tiny.en",
+      "expected": "Ouch, my arm hurts.",
+      "heard": "Ouch! My arm hurts!",
+      "elapsedMs": 530
+    },
+    {
+      "model": "tiny.en",
+      "expected": "",
+      "heard": "",
+      "case": "silence"
+    },
+    {
+      "model": "base.en",
+      "expected": "It's paining.",
+      "heard": "It's a painting.",
+      "elapsedMs": 876
+    },
+    {
+      "model": "base.en",
+      "expected": "My hand is hurting.",
+      "heard": "My hand is hurting.",
+      "elapsedMs": 944
+    },
+    {
+      "model": "base.en",
+      "expected": "My heart is beating fast.",
+      "heard": "My heart is beating fast.",
+      "elapsedMs": 953
+    },
+    {
+      "model": "base.en",
+      "expected": "Baymax, check status.",
+      "heard": "check status.",
+      "elapsedMs": 917
+    },
+    {
+      "model": "base.en",
+      "expected": "Ouch, my arm hurts.",
+      "heard": "Ouch, my arm hurts.",
+      "elapsedMs": 949
+    },
+    {
+      "model": "base.en",
+      "expected": "",
+      "heard": "",
+      "case": "silence"
+    }
+  ]
+}

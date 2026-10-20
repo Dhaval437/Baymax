@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-19T14:00:08.095Z",
+  "results": [
+    {
+      "name": "farewell",
+      "seconds": 5.792,
+      "validPcm": true
+    },
+    {
+      "name": "spoken-laugh",
+      "seconds": 3.2746666666666666,
+      "validPcm": true
+    }
+  ],
+  "physicalPlaybackTested": false
+}

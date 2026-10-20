@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-19T13:39:03.938Z",
+  "synthetic": true,
+  "realLocalModel": true,
+  "summaryCreated": true,
+  "correctedFactsRetained": true,
+  "answer": "Name: Moti Case color: Blue Budget: 3000 rupees.",
+  "shortReply": "You're welcome. Let me know if you need anything else.",
+  "memory": {
+    "turns": 19,
+    "recentMessages": 22,
+    "summarized": true,
+    "compactions": 1,
+    "partial": false
+  },
+  "elapsedMs": 97103,
+  "physicalAudioTested": false,
+  "marathiEnabled": false
+}

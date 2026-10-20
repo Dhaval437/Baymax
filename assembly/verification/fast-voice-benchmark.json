@@ -1,0 +1,22 @@
+{
+  "phrase": "I heard you. Tell me what happened, and I will try to help.",
+  "scope": "Local synthesis only; not total response latency",
+  "results": [
+    {
+      "mode": "character",
+      "ms": 4711
+    },
+    {
+      "mode": "fast",
+      "ms": 1609
+    },
+    {
+      "mode": "character",
+      "ms": 4657
+    },
+    {
+      "mode": "fast",
+      "ms": 802
+    }
+  ]
+}

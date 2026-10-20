@@ -1,0 +1,23 @@
+{
+  "kind": "synthetic voice loopback, not physical microphone validation",
+  "results": [
+    {
+      "text": "Baymax.",
+      "heard": "Baymax.",
+      "normalized": "Baymax.",
+      "recognized": true
+    },
+    {
+      "text": "Ouch!",
+      "heard": "ouch",
+      "normalized": "ouch",
+      "recognized": true
+    },
+    {
+      "text": "Check status.",
+      "heard": "checks status",
+      "normalized": "checks status",
+      "recognized": false
+    }
+  ]
+}

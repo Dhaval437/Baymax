@@ -1,7 +1,20 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { isWakePhrase } from '../wake-response.mjs';
+import { isWakePhrase, isGoodbye, isCareComplete, normalizeRobotTranscript } from '../wake-response.mjs';
 import { createDeviceServer } from '../device-server.mjs';
+test('reported Pmax wake variant is normalized only as a leading address', () => {
+  for (const text of ['Pmax', 'P max, hello', 'Hey Pmax, check status'])
+    assert.ok(isWakePhrase(normalizeRobotTranscript(text)));
+  assert.equal(normalizeRobotTranscript('What is the Pmax rating?'), 'What is the Pmax rating?');
+});
+
+test('care completion accepts natural variants without stopping negated or quoted requests', () => {
+  for (const text of ['I am satisfied with my care.', "I'm satisfied with my care", 'I’m satisfied with your care!', 'Baymax, I am satisfied with my care.', 'Okay, I am satisfied with my care, thank you Baymax.']) {
+    assert.ok(isCareComplete(text), text); assert.ok(isGoodbye(text), text);
+  }
+  for (const text of ['I am not satisfied with my care', "I'm not satisfied with my care", 'What happens when I say I am satisfied with my care?', 'I am satisfied with my care but I have another question', 'Am I satisfied with my care?'])
+    assert.equal(isGoodbye(text), false, text);
+});
 
 test('wake words include extended cries without matching ordinary words', () => {
   for (const text of ['Ouch!', 'Ouch, my foot.', 'aaa', 'AAAA!', 'aaah', 'ah', 'ow', 'owww', 'oh ow'])
@@ -10,7 +23,7 @@ test('wake words include extended cries without matching ordinary words', () => 
     assert.equal(isWakePhrase(text), false, text);
 });
 
-test('passive wake requests are authenticated, skip ordinary speech and rate-limit reactions', async t => {
+test('passive wake requests are authenticated, skip ordinary speech and allow repeated distress cues', async t => {
   const token = 'a'.repeat(32);
   let transcript = 'Hello there', transcriptions = 0, replies = 0;
   const wav = Buffer.alloc(48);
@@ -36,7 +49,7 @@ test('passive wake requests are authenticated, skip ordinary speech and rate-lim
   const response=await send();
   assert.equal(response.status,200);
   assert.ok((await response.arrayBuffer()).byteLength>0);
-  assert.equal((await send()).status,204);
-  assert.equal(transcriptions,2);
+  assert.equal((await send()).status,200);
+  assert.equal(transcriptions,3);
   assert.equal(replies,0);
 });

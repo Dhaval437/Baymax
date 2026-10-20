@@ -1,5 +1,7 @@
 # Baymax phone setup
 
+**Installation update, 19 October 2026:** The complete firmware, including this phone interface and enabled PCA9685 motor gestures, has now been uploaded and flash-verified on COM14. Fresh telemetry confirmed Wi-Fi and automatic listening. See [FINAL_RELEASE.md](FINAL_RELEASE.md) for current operation and verification. The paragraphs below describing the earlier uninstalled build are historical validation notes; physical provisioning and OTA acceptance still remain to be tested.
+
 Built 18 October 2026. This is a mobile browser interface hosted by the ESP32 itself. It works without an app-store install. The initial firmware installation needs USB once; Wi-Fi changes and later compatible application updates use this page. The new firmware is **not installed or physically tested yet**.
 
 Validation completed: final integrated firmware compiled for ESP32-S3 N16R8 (1,111,731 bytes reported code, 59,892 bytes globals); exported application image is 1,111,872 bytes and fits the 3 MiB OTA slot. ESP32-S3 header and phone-setup marker verified. Five network/dashboard tests, native C++ input/image-policy checks, and the mocked phone browser flows passed. The laptop launcher's check-only run passed without starting Baymax. No USB ESP32 was detected at completion, so no firmware was uploaded. The old conversation test remains stopped; only the disabled localhost design preview is running at http://127.0.0.1:8794/?preview=1.

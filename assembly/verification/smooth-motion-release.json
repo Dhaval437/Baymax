@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-20T05:36:28.433Z",
+  "sha256": "E8A9C7F2D411639E3145E977EBCE8486AFC5A714DC69FC69BBECC14EC9B11F74",
+  "md5": "445237f6f9009e5ce414baf225521435",
+  "bytes": 1115232,
+  "uploadMethod": "authenticated Wi-Fi OTA",
+  "runningImageMatches": true,
+  "firmwareRevision": "2026-10-20-network-v2",
+  "voicePeak": 20000,
+  "gestureMs": 6000,
+  "rebootConfirmed": true,
+  "wifiConnected": true,
+  "listening": true,
+  "physicalMotionObserved": false,
+  "audioQualityVerified": false
+}

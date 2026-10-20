@@ -39,7 +39,8 @@ test('device server requires its separate bearer token and returns raw speech sa
   assert.deepEqual(Buffer.from(await response.arrayBuffer()), Buffer.from([0, 0, 1, 0]));
   assert.deepEqual(calls, [['transcribe', 144, 'audio/wav'], ['reply', 'Hello', 0], ['speak', 'Hello. I am here.']]);
   await send(`Bearer ${token}`);
-  assert.equal(calls.at(-2)[2], 2);
+  assert.equal(calls.filter(c => c[0] === 'reply').at(-1)[2], 2);
+  assert.equal(calls.filter(c => c[0] === 'speak').length, 1); // same answer reuses audio, not conversation context
 });
 
 test('device server rejects oversized recordings before inference', async t => {
@@ -50,7 +51,7 @@ test('device server rejects oversized recordings before inference', async t => {
   t.after(() => new Promise(done => server.close(done)));
   const response = await fetch(`http://127.0.0.1:${server.address().port}/device/turn`, {
     method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'audio/wav' },
-    body: Buffer.alloc(8 * 16000 * 2 + 45)
+    body: Buffer.alloc(60 * 16000 * 2 + 45)
   });
   assert.equal(response.status, 413);
 });

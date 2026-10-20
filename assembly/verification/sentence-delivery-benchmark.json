@@ -1,0 +1,7 @@
+{
+  "text": "Hello. I am here to help you. Tell me what happened, and we can work through it together.",
+  "wholeReplyReadyMs": 5202,
+  "firstSentenceReadyMs": 1491,
+  "allSentencesReadyMs": 8112,
+  "note": "Real local synthesis, no microphone, model-answer or network time included."
+}

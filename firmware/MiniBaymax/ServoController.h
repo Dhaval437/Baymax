@@ -7,7 +7,16 @@
 class ServoController {
   bool healthy = false, enabled = false;
   int axis = -1, current = 1500;
-  uint32_t started = 0, lastStep = 0;
+  bool accompanyHead = false;
+  bool expressive = false;
+  int scale = 100;
+  uint32_t started = 0, lastStep = 0, progress = 0;
+  static int eased(int from, int to, uint32_t at, uint32_t duration) {
+    float t = float(at) / duration;
+    // Quintic easing: zero velocity and acceleration at each endpoint.
+    float s = t * t * t * (10.0f + t * (-15.0f + 6.0f * t));
+    return int(from + (to - from) * s + 0.5f);
+  }
   bool writeReg(uint8_t reg, uint8_t value) {
     Wire.beginTransmission(0x40); Wire.write(reg); Wire.write(value);
     return Wire.endTransmission() == 0;
@@ -54,24 +63,38 @@ class ServoController {
   bool available() const { return healthy; }
   bool permitted() const { return healthy && enabled; }
   bool moving() const { return axis >= 0; }
-  bool gesture(uint8_t channel = 0) {
+  bool gesture(uint8_t channel = 0, bool withHead = false, int strength = 100, bool lively = false) {
     if (!permitted() || channel > 2 || moving()) return false;
-    axis = channel; current = JOINTS[axis].centre; started = lastStep = millis();
+    accompanyHead = withHead && channel != 0; scale = constrain(strength, 25, 100);
+    expressive = lively;
+    axis = channel; current = JOINTS[axis].centre; started = lastStep = millis(); progress = 0;
     if (!pulse(axis, current)) { stop(); enabled = false; return false; }
     return true;
   }
   void tick() {
     if (axis < 0) return;
     uint32_t elapsed = millis() - started;
-    if (elapsed >= 3500) { stop(); return; }
+    if (elapsed >= 12000) { stop(); return; } // bounded output even if foreground stalls
     if (millis() - lastStep < 20) return;
     lastStep = millis();
+    // Advance only one frame after a slow network/phone request; never jump
+    // ahead to a distant target to catch up with wall-clock time.
+    progress += 20;
     const auto &j = JOINTS[axis];
+    int first = j.direction > 0 ? j.maximum : j.minimum;
+    int second = j.direction > 0 ? j.minimum : j.maximum;
+    first = j.centre + (first - j.centre) * scale / 100;
+    second = j.centre + (second - j.centre) * scale / 100;
     int target = j.centre;
-    if (elapsed >= 300 && elapsed < 1200) target += 80 * j.direction;
-    else if (elapsed >= 1200 && elapsed < 2100) target -= 80 * j.direction;
+    uint32_t frame = expressive ? (progress * 2) % GESTURE_DURATION_MS : progress;
+    if (frame >= 200 && frame < 1600) target = eased(j.centre, first, frame - 200, 1400);
+    else if (frame >= 1600 && frame < 4400) target = eased(first, second, frame - 1600, 2800);
+    else if (frame >= 4400 && frame < 5800) target = eased(second, j.centre, frame - 4400, 1400);
     target = constrain(target, j.minimum, j.maximum);
-    current += constrain(target - current, -3, 3);
-    if (!pulse(axis, current)) { stop(); enabled = false; }
+    current += constrain(target - current, -6, 6);
+    bool ok = pulse(axis, current);
+    if (accompanyHead) ok = pulse(0, JOINTS[0].centre + (current - j.centre) * j.direction * JOINTS[0].direction / 2) && ok;
+    if (!ok) { stop(); enabled = false; }
+    else if (progress >= GESTURE_DURATION_MS) stop();
   }
 };

@@ -1,0 +1,16 @@
+﻿{
+    "usbUnpluggedTestPerformed":  false,
+    "wirelessSetupReachable":  true,
+    "nodeTestsPassed":  33,
+    "motorsEnabled":  true,
+    "usbPort":  "COM14",
+    "pcaHealthy":  true,
+    "wirelessIp":  "192.168.31.171",
+    "checkedAt":  "2026-10-19T12:53:54.8174868Z",
+    "uploaded":  true,
+    "motorTravelPhysicallyObserved":  false,
+    "servoHostTestsPassed":  true,
+    "setupPolicyTestsPassed":  true,
+    "automaticListening":  true,
+    "wirelessConnected":  true
+}

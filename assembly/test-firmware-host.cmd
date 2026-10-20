@@ -7,3 +7,7 @@ if not exist ".tools\build\host" mkdir ".tools\build\host"
 cl /nologo /std:c++17 /EHsc /Itest\firmware-stubs test\servo-controller.cpp /Fe:.tools\build\host\servo-controller.exe /Fo:.tools\build\host\servo-controller.obj
 if errorlevel 1 exit /b 1
 .tools\build\host\servo-controller.exe
+if errorlevel 1 exit /b 1
+cl /nologo /std:c++17 /EHsc test\listening-policy.cpp /Fe:.tools\build\host\listening-policy.exe /Fo:.tools\build\host\listening-policy.obj
+if errorlevel 1 exit /b 1
+.tools\build\host\listening-policy.exe

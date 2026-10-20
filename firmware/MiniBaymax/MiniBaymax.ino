@@ -3,15 +3,32 @@
 #include <HTTPClient.h>
 #include <ESP_I2S.h>
 #include <math.h>
+#include <miniz.h>
 #include "config.h"
 #include "RobotSettings.h"
 #include "ServoController.h"
 #include "PhoneSetup.h"
+#include "ListeningPolicy.h"
 
+class PromptClient : public WiFiClient {
+ public:
+  using WiFiClient::connect;
+  int connect(const char *host, uint16_t port, int32_t timeout) override {
+    int ok = WiFiClient::connect(host, port, timeout);
+    if (ok) setNoDelay(true);
+    return ok;
+  }
+  int connect(IPAddress ip, uint16_t port, int32_t timeout) override {
+    int ok = WiFiClient::connect(ip, port, timeout);
+    if (ok) setNoDelay(true);
+    return ok;
+  }
+};
 // Baymax integrated firmware v2. No button required. Laptop runs Start-Baymax.cmd.
 constexpr uint32_t MIC_RATE = 16000, SPEAKER_RATE = 24000;
-constexpr size_t MAX_SAMPLES = MIC_RATE * 8, PRE_SAMPLES = MIC_RATE / 4;
-constexpr size_t MAX_REPLY_BYTES = SPEAKER_RATE * 2 * 30;
+constexpr size_t MAX_SAMPLES = MIC_RATE * 60, PRE_SAMPLES = MIC_RATE * 3 / 4;
+constexpr size_t MAX_REPLY_BYTES = SPEAKER_RATE * 2 * 60;
+ListeningPolicy endpoint;
 I2SClass audio;
 ServoController servos;
 PhoneSetup phone;
@@ -23,7 +40,10 @@ bool listening = BAYMAX_AUTO_LISTEN, rx = false, capturing = false, inConversati
 bool busyIO = false, wasWake = false;
 uint32_t resumeAt = 0, conversationUntil = 0, rxStarted = 0, lastLevel = 0;
 uint32_t jobStarted = 0, pollAt = 0, wifiAttempt = 0;
+uint16_t replyPart = 0;
 float noiseFloor = 80;
+size_t noiseCalibrationSamples = 0;
+float calibrationMinimum = 32768;
 String jobId, baseUrl;
 const char *phase = "boot";
 
@@ -66,18 +86,21 @@ void controls() {
       } else if ((c == 'H' || c == 'L' || c == 'R') && !busyIO && !jobId.length()) {
         stopMic(); resumeAt = millis() + 4000;
         bool ok = servos.gesture(c == 'H' ? 0 : c == 'L' ? 1 : 2);
-        console->println(ok ? "Small calibrated gesture started." : "Motion disabled or controller unavailable.");
+        console->println(ok ? "Smooth six-second gesture started." : "Motion disabled or controller unavailable.");
       }
     }
   }
 }
 bool openHttp(HTTPClient &http, WiFiClient &client, const String &path) {
   if (WiFi.status() != WL_CONNECTED) return false;
-  http.setConnectTimeout(1500); http.setTimeout(2500);
+  http.setConnectTimeout(5000); http.setTimeout(5000);
   if (!http.begin(client, baseUrl + path)) return false;
   http.addHeader("Authorization", String("Bearer ") + DEVICE_TOKEN);
-  const char *keys[] = {"X-Audio-Format", "X-Conversation"};
-  http.collectHeaders(keys, 2);
+  http.addHeader("X-Baymax-Motion", servos.permitted() ? "1" : "0");
+  http.addHeader("X-Baymax-Pca", servos.available() ? "1" : "0");
+  http.addHeader("X-Baymax-Conversation", inConversation ? "1" : "0");
+  const char *keys[] = {"X-Audio-Format", "X-Conversation", "X-Conversation-Window-Ms", "X-Gesture", "X-Reply-More"};
+  http.collectHeaders(keys, 5);
   return true;
 }
 void retryLater(const char *message, uint32_t pause = 5000) {
@@ -86,25 +109,50 @@ void retryLater(const char *message, uint32_t pause = 5000) {
 }
 void submit(size_t samples, bool wake) {
   header(samples); servos.stop();
-  WiFiClient client; HTTPClient http;
+  const size_t originalBytes = 44 + samples * 2;
+  // Reuse the idle playback buffer; compression preserves every microphone sample.
+  const size_t packedBytes = tdefl_compress_mem_to_mem(replyAudio, MAX_REPLY_BYTES,
+    recording, originalBytes, TDEFL_WRITE_ZLIB_HEADER | 16);
+  const bool compressed = packedBytes > 0 && packedBytes < originalBytes;
+  uint8_t *body = compressed ? replyAudio : recording;
+  const size_t bodyBytes = compressed ? packedBytes : originalBytes;
+  PromptClient client; HTTPClient http;
   if (!openHttp(http, client, wake ? "/wake?async=1" : "/turn?async=1")) {
     retryLater("Wi-Fi unavailable; reconnecting."); return;
   }
   phase = "sending"; busyIO = true;
   http.addHeader("Content-Type", "audio/wav");
-  int code = http.POST(recording, 44 + samples * 2);
+  if (compressed) http.addHeader("Content-Encoding", "deflate");
+  uint32_t sentAt = millis();
+  int code = http.POST(body, bodyBytes);
+  console->printf("Upload bytes=%u elapsed_ms=%u RSSI=%d HTTP=%d\n",
+    unsigned(bodyBytes), unsigned(millis() - sentAt), WiFi.RSSI(), code);
+  // Retry only failed TCP connections: no request reached the server, so this
+  // cannot create duplicate speech jobs. Keep the captured utterance intact.
+  constexpr uint8_t MAX_CONNECT_ATTEMPTS = 6;
+  for (uint8_t attempt = 1; code == HTTPC_ERROR_CONNECTION_REFUSED && attempt < MAX_CONNECT_ATTEMPTS; ++attempt) {
+    http.end();
+    console->printf("Laptop connection retry %u/%u (Wi-Fi RSSI %d dBm).\n", attempt, MAX_CONNECT_ATTEMPTS - 1, WiFi.RSSI());
+    uint32_t retryAt = millis() + 400 * attempt;
+    while (int32_t(millis() - retryAt) < 0 && listening) { controls(); delay(10); }
+    if (!listening) { busyIO = false; return; }
+    if (!openHttp(http, client, wake ? "/wake?async=1" : "/turn?async=1")) break;
+    http.addHeader("Content-Type", "audio/wav");
+    if (compressed) http.addHeader("Content-Encoding", "deflate");
+    code = http.POST(body, bodyBytes);
+  }
   String id = code == 202 && http.getSize() == 24 ? http.getString() : "";
   http.end(); controls(); busyIO = false;
   if (!listening) return;
   bool valid = id.length() == 24;
   for (size_t i = 0; i < id.length(); ++i) if (!isxdigit(id[i])) valid = false;
   if (code == 202 && valid) {
-    jobId = id; jobStarted = millis(); pollAt = millis() + 700; wasWake = wake;
+    jobId = id; replyPart = 0; jobStarted = millis(); pollAt = millis() + 100; wasWake = wake;
     phase = "thinking"; console->println("Processing speech on laptop...");
   } else if (code == 204) retryLater("No wake phrase, silence, or cooldown.", 1000);
   else {
-    console->printf("Laptop request HTTP %d.\n", code);
-    retryLater("Check laptop server, Wi-Fi and device configuration.");
+    console->printf("Laptop request unavailable after automatic retries (HTTP %d).\n", code);
+    retryLater("Laptop temporarily unreachable. Listening continues automatically.");
   }
 }
 bool downloadReply(HTTPClient &http, size_t &size) {
@@ -128,7 +176,7 @@ bool downloadReply(HTTPClient &http, size_t &size) {
   }
   return listening && size == size_t(total);
 }
-bool playReply(size_t bytes) {
+bool playReply(size_t bytes, const String &gesture) {
   phase = "speaking";
   int peak = 1;
   for (size_t i = 0; i < bytes; i += 2) {
@@ -136,19 +184,26 @@ bool playReply(size_t bytes) {
     peak = max(peak, abs(int(value)));
   }
   // Bound quiet-recording amplification and retain digital headroom at the configured peak.
-  float gain = fminf(3.0f, float(BAYMAX_VOICE_PEAK) / peak);
+  float gain = fminf(5.0f, float(BAYMAX_VOICE_PEAK) / peak);
   audio.setPins(4, 5, 7, -1);
   if (!audio.begin(I2S_MODE_STD, SPEAKER_RATE, I2S_DATA_BIT_WIDTH_32BIT, I2S_SLOT_MODE_STEREO)) {
     audio.end(); pinMode(7, OUTPUT); digitalWrite(7, LOW); return false;
   }
-  static uint8_t nextArm = 1;
-  servos.gesture(wasWake ? 0 : nextArm);
-  nextArm = nextArm == 1 ? 2 : 1;
-  const size_t samples = bytes / 2, total = samples + SPEAKER_RATE / 2;
+  uint8_t speechArm = (replyPart % 2) ? 2 : 1;
+  if (gesture == "greeting" || gesture == "farewell") servos.gesture(2, true, 100, true);
+  else if (gesture == "explain") servos.gesture(replyPart % 2 ? 2 : 1, true, 100, true);
+  else servos.gesture(0, false, gesture == "gentle" ? 35 : 60);
+  const size_t samples = bytes / 2, total = samples + SPEAKER_RATE / 20;
   uint32_t started = millis(); bool ok = true;
   for (size_t base = 0; base < total && listening; base += 128) {
     controls(); servos.tick();
-    if (!listening || millis() - started > 33000) { ok = false; break; }
+    // Repeat only while speech remains, alternating arms with an accompanying head turn.
+    // Each cycle retains calibrated limits, easing and the controller's watchdog.
+    if (!servos.moving() && base + SPEAKER_RATE * 2 < samples) {
+      speechArm = speechArm == 1 ? 2 : 1;
+      servos.gesture(speechArm, true, gesture == "gentle" ? 40 : 100, gesture != "gentle");
+    }
+    if (!listening || millis() - started > 63000) { ok = false; break; }
     int32_t stereo[256];
     for (size_t j = 0; j < 128; ++j) {
       size_t n = base + j; int32_t value = 0;
@@ -167,36 +222,47 @@ bool playReply(size_t bytes) {
   }
   audio.end(); pinMode(7, OUTPUT); digitalWrite(7, LOW);
   // Let a successful short reply's gesture return gently to centre in loop().
-  // monitor() waits for it to finish before listening again.
+  // Microphone capture resumes while the bounded gesture finishes.
   if (!ok || !listening) servos.stop();
   return ok && listening;
 }
 void pollReply() {
   if (millis() - jobStarted > 420000) { retryLater("Laptop processing timed out.", 10000); return; }
   if (int32_t(millis() - pollAt) < 0) return;
-  pollAt = millis() + 1000;
-  WiFiClient client; HTTPClient http;
-  if (!openHttp(http, client, "/result/" + jobId)) return;
+  pollAt = millis() + 100;
+  PromptClient client; HTTPClient http;
+  if (!openHttp(http, client, "/result/" + jobId + "?part=" + String(replyPart))) return;
   busyIO = true; int code = http.GET(); controls();
   if (!listening) { http.end(); busyIO = false; return; }
   if (code == 202 || code < 0) { http.end(); busyIO = false; return; }
   bool end = http.header("X-Conversation") == "end";
+  String gesture = http.header("X-Gesture");
+  bool more = http.header("X-Reply-More") == "1";
+  long windowMs = http.header("X-Conversation-Window-Ms").toInt();
+  if (windowMs < 30000 || windowMs > 90000) windowMs = CONVERSATION_WINDOW_MS;
   size_t bytes = 0;
   bool downloaded = code == 200 && downloadReply(http, bytes);
-  http.end(); jobId = "";
+  http.end();
   if (!listening) { busyIO = false; return; }
-  bool played = downloaded && playReply(bytes);
+  bool played = downloaded && playReply(bytes, gesture);
   busyIO = false;
   if (!listening) return;
+  if (played && more) {
+    ++replyPart; pollAt = millis(); phase = "thinking";
+    return;
+  }
+  jobId = "";
   if (played) {
-    inConversation = !end; conversationUntil = millis() + CONVERSATION_WINDOW_MS;
-    resumeAt = millis() + 1200; phase = "waiting";
+    inConversation = !end; conversationUntil = millis() + uint32_t(windowMs);
+    resumeAt = millis(); phase = "waiting";
+    // Restart capture here, before phone HTTP maintenance can stall the next loop.
+    monitor();
     console->println(end ? "Conversation ended. Waiting for Baymax / ouch." : "Reply played. Speak your answer after a short pause.");
-  } else if (code == 204) retryLater("No recognized speech or wake phrase.", 1000);
+  } else if (code == 204) retryLater("No recognized speech or wake phrase.", 100);
   else retryLater("Reply failed. Listening will retry; use ? for status.");
 }
 void monitor() {
-  if (int32_t(millis() - resumeAt) < 0 || servos.moving()) return;
+  if (int32_t(millis() - resumeAt) < 0) return;
   if (inConversation && int32_t(millis() - conversationUntil) >= 0 && !capturing) inConversation = false;
   if (!rx) {
     audio.setPins(4, 5, -1, 6);
@@ -211,15 +277,25 @@ void monitor() {
   double sum = 0, squares = 0;
   for (size_t i = 0; i < count; ++i) { double s = int16_t(raw[i] >> 16); sum += s; squares += s * s; }
   float level = sqrt(fmax(0.0, squares / count - (sum / count) * (sum / count)));
-  float threshold = fmaxf(BAYMAX_MIC_THRESHOLD, noiseFloor * 3.0f);
+  bool calibrating = noiseCalibrationSamples < MIC_RATE;
+  if (calibrating && millis() - rxStarted >= 32) {
+    calibrationMinimum = fminf(calibrationMinimum, level);
+    noiseCalibrationSamples += count;
+    if (noiseCalibrationSamples >= MIC_RATE) {
+      noiseFloor = fmaxf(30.0f, fminf(800.0f, calibrationMinimum));
+      console->printf("Room noise calibrated: rms=%.0f\n", noiseFloor);
+    }
+  }
+  float threshold = fmaxf(BAYMAX_MIC_THRESHOLD, noiseFloor * (inConversation ? 2.5f : 3.0f));
   bool loud = level >= threshold;
-  if (!capturing && !loud) noiseFloor = 0.99f * noiseFloor + 0.01f * level;
+  if (!capturing && !loud && !servos.moving()) noiseFloor = 0.99f * noiseFloor + 0.01f * level;
   if (millis() - lastLevel >= 1000) {
     lastLevel = millis(); console->printf("LEVEL rms=%.0f trigger=%.0f mode=%s\n", level, threshold, inConversation ? "conversation" : "wake");
   }
-  if (millis() - rxStarted < 400) return; // discard I2S startup transient
-  if (!capturing && loud) {
+  if (millis() - rxStarted < 32) return; // discard only the first two startup frames
+  if (!capturing && loud && !calibrating) {
     capturing = true; captured = preCount; quiet = voiced = 0;
+    endpoint.begin(inConversation);
     size_t start = (preIndex + PRE_SAMPLES - preCount) % PRE_SAMPLES;
     for (size_t i = 0; i < preCount; ++i) put16(recording + 44 + i * 2, uint16_t(preAudio[(start + i) % PRE_SAMPLES]));
     phase = "recording";
@@ -232,8 +308,12 @@ void monitor() {
   }
   if (capturing) {
     if (loud) { quiet = 0; voiced += count; } else quiet += count;
-    if (captured >= MAX_SAMPLES || quiet >= MIC_RATE * 7 / 10) {
-      size_t samples = captured, speech = voiced;
+    endpoint.observe(loud, uint32_t(count * 1000 / MIC_RATE));
+    if (captured >= MAX_SAMPLES || endpoint.finished()) {
+      console->printf("Capture finished: seconds=%.1f pause_ms=%u limit=%d\n", float(captured)/MIC_RATE, endpoint.pauseMs(), captured >= MAX_SAMPLES);
+      // Keep 250ms of trailing silence for word endings; do not upload the full endpoint wait.
+      const size_t tail = MIC_RATE / 4;
+      size_t samples = captured - (quiet > tail ? min(quiet - tail, captured) : 0), speech = voiced;
       bool wake = !inConversation;
       stopMic();
       if (speech >= MIC_RATE * 8 / 100) submit(samples, wake);

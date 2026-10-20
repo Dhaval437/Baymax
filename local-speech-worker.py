@@ -26,8 +26,8 @@ def load_voice():
 def load_recognizer():
     global recognizer
     if recognizer is None:
-        from faster_whisper import WhisperModel
-        recognizer = WhisperModel('tiny.en', device='cpu', compute_type='int8', download_root=ROOT / '.models', local_files_only=True)
+        from speech_recognition import load_recognizer as create_recognizer
+        recognizer = create_recognizer()
 
 for line in sys.stdin:
     request = {}
@@ -39,7 +39,7 @@ for line in sys.stdin:
             if operation == 'warm':
                 load_voice()
                 load_recognizer()
-                result = {'ready': True}
+                result = {'ready': True, 'recognitionModel': 'tiny.en'}
             elif operation == 'speak':
                 load_voice()
                 if not isinstance(request.get('text'), str) or not 0 < len(request['text']) <= 2000:
@@ -52,8 +52,8 @@ for line in sys.stdin:
                 result = {'audioSeconds': wav.shape[-1] / tts.sample_rate}
             elif operation == 'transcribe':
                 load_recognizer()
-                segments, _ = recognizer.transcribe(request['input'], beam_size=2, language='en', vad_filter=True)
-                result = {'text': ' '.join(segment.text.strip() for segment in segments).strip()}
+                from speech_recognition import transcribe
+                result = {'text': transcribe(recognizer, request['input'], request.get('hints', ''))}
             else:
                 raise ValueError('Unknown operation')
         emit({'id': request.get('id'), 'ok': True, 'result': result, 'elapsedMs': round((time.perf_counter() - started) * 1000)})

@@ -15,6 +15,9 @@ test('serial telemetry requires integrated identity, preserves real gaps and exp
   now+=8000;assert.equal(t.snapshot().fresh,false);assert.equal(t.snapshot().samples.length,1);
   t.accept({line:'Reply played. Speak your answer after a short pause.'});
   assert.equal(t.snapshot().playbackFinishedAt,now);
+  t.accept({line:'Laptop request HTTP -1.'});assert.equal(t.snapshot().events.length,2);
+  t.accept({line:'BAYMAX v2 boot: PCA=1 motion=1; X stop, W resume, ? status, H/L/R small calibrated gestures.'});
+  assert.equal(t.snapshot().events.length,0);assert.equal(t.snapshot().playbackFinishedAt,null);
   t.accept({connected:false,port:'COM14'});assert.equal(t.snapshot().verified,false);
 });
 test('dashboard is read-only, rejects foreign origins/hosts, renders no credentials', async t => {

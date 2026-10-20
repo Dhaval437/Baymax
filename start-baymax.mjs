@@ -40,11 +40,16 @@ if (failures.length) {
   console.log('Software prerequisites passed. Physical wiring and sound quality are not checked here.');
 } else {
   console.log('Warming local speech models once for faster replies...');
-  try { await warmLocalSpeech(); console.log('Local speech models loaded and ready.'); }
+  try {
+    const speech = await warmLocalSpeech();
+    console.log(`Local speech models loaded and ready. Recognition: ${speech.result.recognitionModel || 'unspecified'}.`);
+  }
   catch { console.error('Local speech warm-up failed; requests will retry.'); }
   // Phone setup can change the robot's endpoint after the laptop changes networks.
   // Bind only the selected private interface, not every interface.
   const device = createDeviceServer(), ui = createServer({ env: { ...process.env, AI_PROVIDER: 'local' } });
+  try { await device.prepareSpeech(); console.log('Wake and goodbye audio prepared.'); }
+  catch { console.error('Fixed audio preparation failed; requests will retry.'); }
   const dashboard = createRobotDashboard(device, { serialPort: process.env.BAYMAX_SERIAL_PORT || 'COM14' });
   dashboard.on('error', error => console.error('Robot dashboard could not start (' + error.code + ').'));
   const devicePort = Number(process.env.BAYMAX_DEVICE_PORT || deviceUrl?.port || 8788), uiPort = Number(process.env.PORT || 8787);

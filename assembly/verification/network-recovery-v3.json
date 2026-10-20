@@ -1,0 +1,19 @@
+{
+  "verifiedAt": "2026-10-20T05:50:18.8364593Z",
+  "firmwareRevision": "2026-10-20-network-v3",
+  "sha256": "27B9FC9CAD935FF144BDC3A78E99D8B8A7817B174F1CE0696D53EE7607D0B31F",
+  "md5": "0e1bf0f2e09cdc32ec162d98df12a0e6",
+  "bytes": 1115296,
+  "installation": "verified USB recovery",
+  "runningImageMatches": true,
+  "wifiConnected": true,
+  "listening": true,
+  "laptopServer": "running",
+  "dashboardFresh": true,
+  "dashboardHistoricalErrorsClearedOnBoot": true,
+  "connectionAttempts": 6,
+  "wifiSleepDisabled": true,
+  "targetedTestsPassed": 18,
+  "physicalReplyPreviouslyConfirmedOnNetworkV2": true,
+  "physicalReplyAfterV3Pending": true
+}

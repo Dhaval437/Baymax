@@ -10,6 +10,7 @@
 #include "SetupPolicy.h"
 #include "SetupPrivate.h"
 #include "SetupPage.h"
+#include "RobotSettings.h"
 
 // Deliberately retained in app images for the phone updater's project check.
 static const char BAYMAX_IMAGE_MARKER[] = "BAYMAX_PHONE_SETUP_V1";
@@ -55,6 +56,8 @@ class PhoneSetup {
   void join(const String &ssid,const String &pass) {
     WiFi.setAutoReconnect(false); WiFi.disconnect(false,false);
     WiFi.begin(ssid.c_str(),pass.c_str());
+    // This mains-powered voice device needs prompt TCP/audio delivery.
+    WiFi.setSleep(false);
     joinAt=retryAt=millis(); joining=true;
   }
   void pause() { maintenance=true; pauseRobot(); }
@@ -127,7 +130,9 @@ class PhoneSetup {
       String json="{\"session\":"+quote(session)+",\"connected\":"+(WiFi.status()==WL_CONNECTED?"true":"false")+
         ",\"ssid\":"+quote(WiFi.SSID())+",\"ip\":"+quote(WiFi.localIP().toString())+",\"setupNetwork\":"+quote(apName)+
         ",\"server\":"+quote(origin)+",\"joining\":"+(joining?"true":"false")+",\"listening\":"+(robotListening()?"true":"false")+
-        ",\"message\":"+quote(message)+",\"storage\":"+(storage?"true":"false")+",\"version\":"+quote(BAYMAX_IMAGE_MARKER)+"}";
+        ",\"message\":"+quote(message)+",\"storage\":"+(storage?"true":"false")+",\"version\":"+quote(BAYMAX_IMAGE_MARKER)+
+        ",\"firmwareRevision\":\"2026-10-20-speech-v9\",\"rssi\":"+String(WiFi.RSSI())+",\"sketchMd5\":"+quote(ESP.getSketchMD5())+
+        ",\"voicePeak\":"+String(BAYMAX_VOICE_PEAK)+",\"gestureMs\":"+String(GESTURE_DURATION_MS)+"}";
       send(200,json);
     });
     web.on("/api/wifi",HTTP_POST,[this](){

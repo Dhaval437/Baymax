@@ -10,6 +10,12 @@ export function createTelemetry(now = Date.now) {
       if ('connected' in message) { data.connected = message.connected; data.error = message.error || ''; data.port = message.port; if (!message.connected) data.verified = false; }
       if (!message.line) return;
       const line = message.line, t = now();
+      if (/^BAYMAX v2 boot:/.test(line)) {
+        data.events = [];
+        data.playbackFinishedAt = null;
+        data.lastSeen = t;
+        return;
+      }
       const state = line.match(/BAYMAX v2 state=(\S+) listening=(\d) conversation=(\d) wifi=(\d) pca=(\d) motion_enabled=(\d) moving=(\d)/);
       if (state) {
         Object.assign(data, { verified: true, lastSeen: t, state: state[1], listening: +state[2], conversation: +state[3], wifi: +state[4], pca: +state[5], motion: +state[6], moving: +state[7] });
@@ -22,7 +28,7 @@ export function createTelemetry(now = Date.now) {
       }
       if (!data.verified) return;
       if (/Reply played|Conversation ended/.test(line)) data.playbackFinishedAt = t;
-      if (/Processing speech|Reply played|Conversation ended|No recognized|failed|HTTP|Reconnecting|Stopped:|Automatic listening/.test(line)) {
+      if (/Processing speech|Reply played|Conversation ended|No recognized|failed|HTTP|unreachable|Reconnecting|Stopped:|Automatic listening/.test(line)) {
         data.events.push({ t, text: line }); data.events = data.events.slice(-12);
       }
     },
