@@ -91,9 +91,10 @@ class ServoController {
     else if (frame >= 1600 && frame < 4400) target = eased(first, second, frame - 1600, 2800);
     else if (frame >= 4400 && frame < 5800) target = eased(second, j.centre, frame - 4400, 1400);
     target = constrain(target, j.minimum, j.maximum);
-    current += constrain(target - current, -6, 6);
+    const int step = expressive ? 28 : 14;
+    current += constrain(target - current, -step, step);
     bool ok = pulse(axis, current);
-    if (accompanyHead) ok = pulse(0, JOINTS[0].centre + (current - j.centre) * j.direction * JOINTS[0].direction / 2) && ok;
+    if (accompanyHead) ok = pulse(0, JOINTS[0].centre + (current - j.centre) * j.direction * JOINTS[0].direction) && ok;
     if (!ok) { stop(); enabled = false; }
     else if (progress >= GESTURE_DURATION_MS) stop();
   }

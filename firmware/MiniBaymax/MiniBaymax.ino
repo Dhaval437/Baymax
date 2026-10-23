@@ -9,6 +9,8 @@
 #include "ServoController.h"
 #include "PhoneSetup.h"
 #include "ListeningPolicy.h"
+#include "NoiseFloor.h"
+#include "SpeechOnset.h"
 
 class PromptClient : public WiFiClient {
  public:
@@ -29,6 +31,7 @@ constexpr uint32_t MIC_RATE = 16000, SPEAKER_RATE = 24000;
 constexpr size_t MAX_SAMPLES = MIC_RATE * 60, PRE_SAMPLES = MIC_RATE * 3 / 4;
 constexpr size_t MAX_REPLY_BYTES = SPEAKER_RATE * 2 * 60;
 ListeningPolicy endpoint;
+SpeechOnset speechOnset;
 I2SClass audio;
 ServoController servos;
 PhoneSetup phone;
@@ -41,7 +44,8 @@ bool busyIO = false, wasWake = false;
 uint32_t resumeAt = 0, conversationUntil = 0, rxStarted = 0, lastLevel = 0;
 uint32_t jobStarted = 0, pollAt = 0, wifiAttempt = 0;
 uint16_t replyPart = 0;
-float noiseFloor = 80;
+uint8_t replyDownloadAttempts = 0;
+NoiseFloor roomNoise;
 size_t noiseCalibrationSamples = 0;
 float calibrationMinimum = 32768;
 String jobId, baseUrl;
@@ -61,6 +65,7 @@ void stopMic() {
   if (rx) audio.end();
   rx = capturing = false;
   preIndex = preCount = captured = quiet = voiced = 0;
+  speechOnset.reset();
 }
 void status() {
   console->printf("BAYMAX v2 state=%s listening=%d conversation=%d wifi=%d pca=%d motion_enabled=%d moving=%d\n",
@@ -117,7 +122,7 @@ void submit(size_t samples, bool wake) {
   uint8_t *body = compressed ? replyAudio : recording;
   const size_t bodyBytes = compressed ? packedBytes : originalBytes;
   PromptClient client; HTTPClient http;
-  if (!openHttp(http, client, wake ? "/wake?async=1" : "/turn?async=1")) {
+  if (!openHttp(http, client, wake ? "/wake?async=1&segments=1" : "/turn?async=1&segments=1")) {
     retryLater("Wi-Fi unavailable; reconnecting."); return;
   }
   phase = "sending"; busyIO = true;
@@ -136,7 +141,7 @@ void submit(size_t samples, bool wake) {
     uint32_t retryAt = millis() + 400 * attempt;
     while (int32_t(millis() - retryAt) < 0 && listening) { controls(); delay(10); }
     if (!listening) { busyIO = false; return; }
-    if (!openHttp(http, client, wake ? "/wake?async=1" : "/turn?async=1")) break;
+    if (!openHttp(http, client, wake ? "/wake?async=1&segments=1" : "/turn?async=1&segments=1")) break;
     http.addHeader("Content-Type", "audio/wav");
     if (compressed) http.addHeader("Content-Encoding", "deflate");
     code = http.POST(body, bodyBytes);
@@ -147,7 +152,7 @@ void submit(size_t samples, bool wake) {
   bool valid = id.length() == 24;
   for (size_t i = 0; i < id.length(); ++i) if (!isxdigit(id[i])) valid = false;
   if (code == 202 && valid) {
-    jobId = id; replyPart = 0; jobStarted = millis(); pollAt = millis() + 100; wasWake = wake;
+    jobId = id; replyPart = 0; replyDownloadAttempts = 0; jobStarted = millis(); pollAt = millis() + 100; wasWake = wake;
     phase = "thinking"; console->println("Processing speech on laptop...");
   } else if (code == 204) retryLater("No wake phrase, silence, or cooldown.", 1000);
   else {
@@ -192,7 +197,7 @@ bool playReply(size_t bytes, const String &gesture) {
   uint8_t speechArm = (replyPart % 2) ? 2 : 1;
   if (gesture == "greeting" || gesture == "farewell") servos.gesture(2, true, 100, true);
   else if (gesture == "explain") servos.gesture(replyPart % 2 ? 2 : 1, true, 100, true);
-  else servos.gesture(0, false, gesture == "gentle" ? 35 : 60);
+  else servos.gesture(speechArm, true, 100, false);
   const size_t samples = bytes / 2, total = samples + SPEAKER_RATE / 20;
   uint32_t started = millis(); bool ok = true;
   for (size_t base = 0; base < total && listening; base += 128) {
@@ -201,7 +206,7 @@ bool playReply(size_t bytes, const String &gesture) {
     // Each cycle retains calibrated limits, easing and the controller's watchdog.
     if (!servos.moving() && base + SPEAKER_RATE * 2 < samples) {
       speechArm = speechArm == 1 ? 2 : 1;
-      servos.gesture(speechArm, true, gesture == "gentle" ? 40 : 100, gesture != "gentle");
+      servos.gesture(speechArm, true, 100, gesture != "gentle");
     }
     if (!listening || millis() - started > 63000) { ok = false; break; }
     int32_t stereo[256];
@@ -244,6 +249,13 @@ void pollReply() {
   bool downloaded = code == 200 && downloadReply(http, bytes);
   http.end();
   if (!listening) { busyIO = false; return; }
+  // Nothing has played yet: retry the same immutable part after a partial download.
+  if (code == 200 && !downloaded && replyDownloadAttempts < 3) {
+    ++replyDownloadAttempts; busyIO = false; pollAt = millis() + 250 * replyDownloadAttempts;
+    console->println("Retrying interrupted reply audio download.");
+    return;
+  }
+  if (downloaded) replyDownloadAttempts = 0;
   bool played = downloaded && playReply(bytes, gesture);
   busyIO = false;
   if (!listening) return;
@@ -282,19 +294,26 @@ void monitor() {
     calibrationMinimum = fminf(calibrationMinimum, level);
     noiseCalibrationSamples += count;
     if (noiseCalibrationSamples >= MIC_RATE) {
-      noiseFloor = fmaxf(30.0f, fminf(800.0f, calibrationMinimum));
-      console->printf("Room noise calibrated: rms=%.0f\n", noiseFloor);
+      roomNoise.reset(calibrationMinimum);
+      console->printf("Room noise calibrated: rms=%.0f\n", roomNoise.value());
     }
   }
-  float threshold = fmaxf(BAYMAX_MIC_THRESHOLD, noiseFloor * (inConversation ? 2.5f : 3.0f));
+  // Returning to wake mode must not make a previously audible voice harder to hear.
+  float threshold = roomNoise.threshold(BAYMAX_MIC_THRESHOLD);
   bool loud = level >= threshold;
-  if (!capturing && !loud && !servos.moving()) noiseFloor = 0.99f * noiseFloor + 0.01f * level;
+  roomNoise.observe(level, !calibrating && !capturing && !loud && !servos.moving());
   if (millis() - lastLevel >= 1000) {
     lastLevel = millis(); console->printf("LEVEL rms=%.0f trigger=%.0f mode=%s\n", level, threshold, inConversation ? "conversation" : "wake");
   }
-  if (millis() - rxStarted < 32) return; // discard only the first two startup frames
-  if (!capturing && loud && !calibrating) {
-    capturing = true; captured = preCount; quiet = voiced = 0;
+  if (millis() - rxStarted < 32) { speechOnset.reset(); return; }
+  // Keep incoming samples in preroll while I2S settles; do not let its startup
+  // transient launch an upload/restart loop. Sustained words are recovered from preroll.
+  const bool settled = millis() - rxStarted >= 160;
+  const bool confirmedSpeech = speechOnset.observe(loud && !calibrating && settled, uint32_t(count * 1000 / MIC_RATE));
+  if (!capturing && confirmedSpeech && !calibrating) {
+    capturing = true; captured = preCount; quiet = 0;
+    // Count confirmed speech already retained in preroll, including short wake words.
+    voiced = speechOnset.durationMs() * MIC_RATE / 1000 - count;
     endpoint.begin(inConversation);
     size_t start = (preIndex + PRE_SAMPLES - preCount) % PRE_SAMPLES;
     for (size_t i = 0; i < preCount; ++i) put16(recording + 44 + i * 2, uint16_t(preAudio[(start + i) % PRE_SAMPLES]));
@@ -307,8 +326,8 @@ void monitor() {
     preCount = min(preCount + 1, PRE_SAMPLES);
   }
   if (capturing) {
-    if (loud) { quiet = 0; voiced += count; } else quiet += count;
-    endpoint.observe(loud, uint32_t(count * 1000 / MIC_RATE));
+    if (confirmedSpeech) { quiet = 0; voiced += count; } else quiet += count;
+    endpoint.observe(confirmedSpeech, uint32_t(count * 1000 / MIC_RATE));
     if (captured >= MAX_SAMPLES || endpoint.finished()) {
       console->printf("Capture finished: seconds=%.1f pause_ms=%u limit=%d\n", float(captured)/MIC_RATE, endpoint.pauseMs(), captured >= MAX_SAMPLES);
       // Keep 250ms of trailing silence for word endings; do not upload the full endpoint wait.
@@ -356,5 +375,7 @@ void loop() {
     delay(10); return;
   }
   if (jobId.length()) pollReply(); else monitor();
+  // New gestures run during playback only, removing servo starts as a potential
+  // cause of short false recordings while waiting for the user's voice.
   delay(1);
 }

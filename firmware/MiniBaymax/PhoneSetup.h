@@ -131,7 +131,7 @@ class PhoneSetup {
         ",\"ssid\":"+quote(WiFi.SSID())+",\"ip\":"+quote(WiFi.localIP().toString())+",\"setupNetwork\":"+quote(apName)+
         ",\"server\":"+quote(origin)+",\"joining\":"+(joining?"true":"false")+",\"listening\":"+(robotListening()?"true":"false")+
         ",\"message\":"+quote(message)+",\"storage\":"+(storage?"true":"false")+",\"version\":"+quote(BAYMAX_IMAGE_MARKER)+
-        ",\"firmwareRevision\":\"2026-10-20-speech-v9\",\"rssi\":"+String(WiFi.RSSI())+",\"sketchMd5\":"+quote(ESP.getSketchMD5())+
+        ",\"firmwareRevision\":\"2026-10-20-noise-v16\",\"rssi\":"+String(WiFi.RSSI())+",\"sketchMd5\":"+quote(ESP.getSketchMD5())+
         ",\"voicePeak\":"+String(BAYMAX_VOICE_PEAK)+",\"gestureMs\":"+String(GESTURE_DURATION_MS)+"}";
       send(200,json);
     });

@@ -17,9 +17,10 @@ public:
     } else quietMs_ += ms;
   }
   uint32_t pauseMs() const {
-    uint32_t pause = (conversation_ ? 1000 : 500) + speechMs_ / 20;
-    if (pause < longestPauseMs_ + 400) pause = longestPauseMs_ + 400;
-    return pause > 2000 ? 2000 : pause;
+    // Allow thinking pauses inside a turn; wake-only calls still finish quickly.
+    uint32_t pause = (conversation_ ? 1200 : 700) + speechMs_ / 12;
+    if (pause < longestPauseMs_ + 600) pause = longestPauseMs_ + 600;
+    return pause > 2600 ? 2600 : pause;
   }
   bool finished() const { return quietMs_ >= pauseMs(); }
 };

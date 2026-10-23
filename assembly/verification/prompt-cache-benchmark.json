@@ -1,0 +1,62 @@
+[
+  {
+    "mode": "previous",
+    "warmup": true,
+    "text": "Hello",
+    "ms": 6853,
+    "promptMs": 4125,
+    "generationMs": 1835,
+    "tokens": 10,
+    "answer": "Hello! How can I assist you today?"
+  },
+  {
+    "mode": "previous",
+    "warmup": false,
+    "text": "How does a rainbow form?",
+    "ms": 6820,
+    "promptMs": 541,
+    "generationMs": 5988,
+    "tokens": 47,
+    "answer": "A rainbow forms when sunlight passes through water droplets in the air. The light bends and reflects inside the droplets, then exits and splits into different colors. It takes place in the presence of water and sunlight. 🌈"
+  },
+  {
+    "mode": "previous",
+    "warmup": false,
+    "text": "Name a planet.",
+    "ms": 2638,
+    "promptMs": 444,
+    "generationMs": 2044,
+    "tokens": 20,
+    "answer": "Earth. It's a beautiful planet, full of life and wonders. Want to learn more?"
+  },
+  {
+    "mode": "stable-prefix",
+    "warmup": true,
+    "text": "Hello",
+    "ms": 4784,
+    "promptMs": 3641,
+    "generationMs": 972,
+    "tokens": 10,
+    "answer": "Hello! How can I help you today?"
+  },
+  {
+    "mode": "stable-prefix",
+    "warmup": false,
+    "text": "How does a rainbow form?",
+    "ms": 7103,
+    "promptMs": 647,
+    "generationMs": 6401,
+    "tokens": 50,
+    "answer": "A rainbow forms when sunlight passes through water droplets in the air. The light bends and reflects inside the droplets, creating a spectrum of colors. It takes place after raindrops, and you see a rainbow when the sun is behind you."
+  },
+  {
+    "mode": "stable-prefix",
+    "warmup": false,
+    "text": "Name a planet.",
+    "ms": 2302,
+    "promptMs": 692,
+    "generationMs": 1551,
+    "tokens": 12,
+    "answer": "Mars. It's red and has a moon."
+  }
+]

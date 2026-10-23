@@ -18,9 +18,9 @@
 // Wider commissioning range; not a claim of measured assembled 0–180 travel.
 struct JointLimit { int centre, minimum, maximum, direction; };
 constexpr JointLimit JOINTS[3] = {
-  {1500, 1300, 1700, 1}, // head, PCA channel 0
-  {1500, 1300, 1700, 1}, // robot's left arm, PCA channel 1
-  {1500, 1300, 1700, -1} // robot's right arm, PCA channel 2
+  {1500, 1000, 2000, 1}, // head, PCA channel 0
+  {1500, 1000, 2000, 1}, // robot's left arm, PCA channel 1
+  {1500, 1000, 2000, -1} // robot's right arm, PCA channel 2
 };
 constexpr uint32_t GESTURE_DURATION_MS = 6000;
 constexpr uint32_t PCA_OSCILLATOR_HZ = 26920000;
