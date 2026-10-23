@@ -10,3 +10,4 @@ firmware/MiniBaymax/config.h
 firmware/MiniBaymax/SetupPrivate.h
 assembly/private/
 output/phone-setup/
+tmp/
