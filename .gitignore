@@ -8,6 +8,7 @@ node_modules/
 .tools/
 firmware/MiniBaymax/config.h
 firmware/MiniBaymax/SetupPrivate.h
+firmware/MiniBaymax/build/
 assembly/private/
 output/phone-setup/
 tmp/

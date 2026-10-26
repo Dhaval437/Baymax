@@ -31,7 +31,7 @@ Measured with the same test sentence: previous voice process 18.225 s; resident 
    COM14 was the last tested port; use the current port if Windows changes it. Close any serial monitor or diagnostic test using that port first. Uploading restarts the board and begins listening.
 3. Say **Baymax**. Wait for its greeting to finish, pause briefly, then speak your answer.
 
-The saved laptop address was updated to **192.168.31.126**. A router DHCP reservation is useful. If that address changes, update only `DEVICE_URL` in private `config.h` and rebuild/upload. The launcher checks this mismatch instead of silently starting an unreachable service. Keep this LAN-only service off public port forwarding.
+The saved laptop address belongs only in private `config.h` and is intentionally omitted from the repository. A router DHCP reservation is useful. If that address changes, update only `DEVICE_URL` and rebuild/upload. The launcher checks this mismatch instead of silently starting an unreachable service. Keep this LAN-only service off public port forwarding.
 
 ## Movement and assembly
 

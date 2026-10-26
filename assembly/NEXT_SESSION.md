@@ -1,3 +1,5 @@
+> 26 October: The separate battery-powered walking robot requirements are in [WALKING_ROBOT_BRIEF.md](WALKING_ROBOT_BRIEF.md). Read that brief before planning new hardware; preserve the existing Baymax.
+
 # Continue Baymax from here ? 19 October 2026
 
 ## 20 October continuation
@@ -71,7 +73,7 @@ Baymax was paused through its authenticated phone control API; listening=false w
 
 ## First next steps when the user asks to continue
 1. Start the existing laptop service with Start-Baymax.cmd or node --env-file-if-exists=.env start-baymax.mjs in this project. Avoid duplicate servers. If launching in background use hidden window and record PID in assembly/verification/final-server.pid.
-2. Verify models/server ready, dashboard http://127.0.0.1:8793/, and robot Wi-Fi status. Last robot IP 192.168.31.171; last laptop private IP 192.168.31.126, robot service port 8788. Check actual current addresses; do not assume unchanged.
+2. Verify models/server ready, the local dashboard, and robot Wi-Fi status. Device-specific robot and laptop addresses are intentionally omitted from the repository; check the current private configuration instead of assuming they are unchanged.
 3. Resume the ESP32 through authenticated phone control only when asked to continue. Private key is in firmware/MiniBaymax/SetupPrivate.h; do not print it. Status returns a session needed for X-Baymax-Session. Power-cycling auto-starts firmware listening.
 4. Ask user to try a basic-care question, a joke, spoken laughter, then I am satisfied with my care. Verify physical farewell playback and quiet-until-wake behavior with the user. This physical test remains pending.
 5. Marathi recognition/TTS is still not enabled. Current recognizer is tiny.en and Sopro English voice. Do not claim multilingual support.
@@ -86,3 +88,4 @@ Baymax was paused through its authenticated phone control API; listening=false w
 - public/robot-dashboard.html
 
 Prior mechanical/assembly work and all existing files remain in the project. User wants continuation tomorrow, not a scheduled reminder or automatic restart.
+

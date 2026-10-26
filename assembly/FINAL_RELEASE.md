@@ -9,7 +9,7 @@ The complete integrated firmware was uploaded to the ESP32-S3 N16R8 on COM14 and
 3. The ESP32 boots without waiting for USB, connects to its saved Wi-Fi and starts listening automatically. Say **Baymax** or **ouch**, wait for the greeting to finish, then ask your question. Replies open a 30?90 second follow-up window adapted to the current question and discussion. Saying **goodbye** returns it to wake listening.
 4. If Wi-Fi drops, the firmware retries automatically. If the server is unavailable, it reports a failed request and resumes listening; restart the server and speak again.
 
-The laptop supplies speech recognition, answer generation and voice synthesis. Disconnecting USB does not make this a standalone cloud device. The laptop server is currently `http://192.168.31.126:8788`; if its address changes, update the address through the phone setup page. The localhost dashboard is `http://127.0.0.1:8793/`. Its microphone graph and hardware status depend on USB serial and will become unavailable after unplugging; Wi-Fi conversation does not depend on the graph.
+The laptop supplies speech recognition, answer generation and voice synthesis. Disconnecting USB does not make this a standalone cloud device. The laptop server address is private and intentionally omitted from the repository; if it changes, update it through the phone setup page. The localhost dashboard remains available only on the laptop. Its microphone graph and hardware status depend on USB serial and will become unavailable after unplugging; Wi-Fi conversation does not depend on the graph.
 
 ## Included motor settings
 

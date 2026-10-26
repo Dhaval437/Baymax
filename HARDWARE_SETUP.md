@@ -7,7 +7,7 @@ The user has since confirmed the module reads **N16R8** and its headers are sold
 
 The full sketch compiled with ESP32 core 3.3.12, 16 MB flash, OPI PSRAM and USB CDC on boot. The board-only test **passed**: upload hashes verified, esptool identified ESP32-S3 with 8 MB PSRAM, and the running sketch reported `Flash 16 MB, PSRAM 8 MB`. The audio boards have not arrived, and their wiring, microphone capture and speaker playback remain untested.
 
-**Wi-Fi and laptop link also passed:** using the saved private home Wi-Fi credentials locally, the ESP32 joined as `192.168.31.50` and made an authenticated `GET /device/ping` to the laptop at `192.168.31.142:8788`. Serial reported `HTTP 204 (reachable)`. Windows currently labels that Wi-Fi Public, but the narrow device connection already works; its network category was **not changed**. The laptop device server is running with a token and bound to that LAN address. The IPs may change after router reconnects, so recheck them before a later test.
+**Wi-Fi and laptop link also passed:** using private home Wi-Fi credentials stored only in the local configuration, the ESP32 made an authenticated `GET /device/ping` request to the laptop server. Serial reported `HTTP 204 (reachable)`. Device-specific network addresses and credentials are intentionally omitted from the repository. Recheck the current local addresses before a later test.
 
 This is the laptop-connected build. The ESP32-S3 handles the button, microphone, speaker and later the arm. Your laptop does speech recognition, conversation and the accepted smooth voice. Both devices must share Wi-Fi and the laptop must stay on. Moving the server to a suitable cloud host is a later milestone; no free cloud service has yet been proven to run these local models.
 
